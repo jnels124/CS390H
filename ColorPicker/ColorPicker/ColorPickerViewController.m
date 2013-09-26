@@ -31,10 +31,15 @@
     self.valuesForComponent2ForListPicker =  [ [ NSArray  alloc ] init ];
     self.valuesForComponent3ForListPicker =  [ [ NSArray  alloc ] init ];
     
-    // Initialze strings for picker;
-    self.stringBuilderForRedPicker = @"000";
-    self.stringBuilderForGreenPicker = @"000";
-    self.stringBuilderForBluePicker = @"000";
+    // Initialze strings for textField
+    self.redTextField.text           =
+    self.greenTextField.text         =
+    self.blueTextField.text          =
+    
+    // Initialze strings for picker string builders
+    self.stringBuilderForRedPicker   =
+    self.stringBuilderForGreenPicker =
+    self.stringBuilderForBluePicker  = @"000";
     
     for ( int i =0; i <=2; i++ ) {
         self.valuesForComponent1ForListPicker =
