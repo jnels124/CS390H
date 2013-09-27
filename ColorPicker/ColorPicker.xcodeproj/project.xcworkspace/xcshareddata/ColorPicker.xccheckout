@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1505CBA1-1C9D-4105-8EDD-F2349F6BE150</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ColorPicker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>82956FBB-87E2-4E93-AE4F-E86A501CF9B4</key>
+		<string>https://github.com/jnels124/CS390H</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ColorPicker/ColorPicker.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>82956FBB-87E2-4E93-AE4F-E86A501CF9B4</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jnels124/CS390H</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>82956FBB-87E2-4E93-AE4F-E86A501CF9B4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>82956FBB-87E2-4E93-AE4F-E86A501CF9B4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CS390H</string>
+		</dict>
+	</array>
+</dict>
+</plist>

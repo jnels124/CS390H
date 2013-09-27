@@ -18,6 +18,8 @@
             redStepper,   greenStepper,   blueStepper,
             redPicker,    greenPicker,    bluePicker,
             display,
+            hundredsFlag,
+            possibleValuesForListPickerComponents,
             valuesForComponent1ForListPicker,
             valuesForComponent2ForListPicker,
             valuesForComponent3ForListPicker,
@@ -27,6 +29,7 @@
     [ super viewDidLoad ];
     
     // Load values for number pickers
+    self.possibleValuesForListPickerComponents = [ [ NSArray  alloc ] init ];
     self.valuesForComponent1ForListPicker =  [ [ NSArray  alloc ] init ];
     self.valuesForComponent2ForListPicker =  [ [ NSArray  alloc ] init ];
     self.valuesForComponent3ForListPicker =  [ [ NSArray  alloc ] init ];
@@ -47,6 +50,8 @@
     }
     
     for ( int i =0; i <=9; i++ ) {
+        self.possibleValuesForListPickerComponents =
+         [ self.possibleValuesForListPickerComponents arrayByAddingObject:[NSNumber numberWithInt:i ] ];
         self.valuesForComponent2ForListPicker =
                 [ valuesForComponent2ForListPicker arrayByAddingObject:[NSNumber numberWithInt:i ] ];
         self.valuesForComponent3ForListPicker =
@@ -115,7 +120,7 @@
     else if ( [ sender isKindOfClass:[ UITextField class ] ] ) {
         self.blueStepper.value = [ [ (UITextField *)sender text ] doubleValue ];
         self.brain.blueValue = [ [ (UITextField *)sender text ] intValue ];
-        [self.redPicker selectRow:2 inComponent:0 animated:TRUE];
+        //[ self.redPicker selectRow:2 inComponent:0 animated:TRUE] ;
     }
     
     else {
@@ -162,18 +167,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
                                     (NSInteger)row forComponent:(NSInteger)component {
-    /*if ( component == HUNDREDS_COMPONENT ) {
-        return [ NSString stringWithFormat:@"%@",  [ valuesForComponent1ForListPicker objectAtIndex:row ] ];
-    }
     
-    if ( component == TENS_COMPONENT ) {
-        return [ NSString stringWithFormat:@"%@",  [ valuesForComponent1ForListPicker objectAtIndex:row ] ];
-    }
-    
-    if ( component == ONES_COMPONENT ) {
-        return [ NSString stringWithFormat:@"%@",  [ valuesForComponent1ForListPicker objectAtIndex:row ] ];
-    }
-    return @""; */
     return [ NSString stringWithFormat:@"%d", ( row ) ];
 }
 
@@ -194,20 +188,38 @@
         
         NSLog(@"The value for the string builder is %@\n", stringBuilderForRedPicker );
         /*switch ( component ) {
-            case ONES_COMPONENT:
-                
-                
-                break;
             case TENS_COMPONENT:
-                break;
-            case HUNDREDS_COMPONENT:
+                if ( row == 5 && self.hundredsFlag ) {
+                    self.valuesForComponent3ForListPicker = [ self.possibleValuesForListPickerComponents
+                                                             subarrayWithRange:NSMakeRange( 0, 6 ) ];
+                }
+                else {
+                    self.valuesForComponent3ForListPicker = self.possibleValuesForListPickerComponents;
+                }
                 
                 break;
+        
+                
+            case HUNDREDS_COMPONENT:
+                if( row == 2 ) {
+                    self.valuesForComponent2ForListPicker = [ self.possibleValuesForListPickerComponents
+                                                              subarrayWithRange:NSMakeRange(0,6) ];
+                    self.hundredsFlag = TRUE;
+                }
+                
+                else {
+                    self.valuesForComponent2ForListPicker = self.possibleValuesForListPickerComponents;
+                    self.hundredsFlag = FALSE;
+                }
+                
+                break;
+                
             default:
                 break;
         }*/
         self.redTextField.text = self.stringBuilderForRedPicker;
-        [ self setDisplayBackgroundColor ];
+        
+        [ self.redPicker reloadAllComponents ];
     }
     
     if ( pickerView == self.greenPicker ) {
@@ -226,8 +238,8 @@
         
         NSLog(@"The value for the string builder is %@", stringBuilderForGreenPicker );
         self.greenTextField.text = self.stringBuilderForGreenPicker;
-        [ self setDisplayBackgroundColor ];
         
+        [ self.greenPicker reloadAllComponents ];
     }
     
     if ( pickerView == self.bluePicker ) {
@@ -238,8 +250,40 @@
                                     [ NSString stringWithFormat:@"%d", row ] ];
         self.brain.blueValue = [ self.stringBuilderForBluePicker intValue ];
         self.blueTextField.text = self.stringBuilderForBluePicker;
-        [ self setDisplayBackgroundColor ];
         
+        [ self.bluePicker reloadAllComponents ];
+    }
+    [ self setDisplayBackgroundColor ];
+    
+    switch ( component ) {
+        case TENS_COMPONENT:
+            if ( row == 5 && self.hundredsFlag ) {
+                self.valuesForComponent3ForListPicker = [ self.possibleValuesForListPickerComponents
+                                                         subarrayWithRange:NSMakeRange( 0, 6 ) ];
+            }
+            else {
+                self.valuesForComponent3ForListPicker = self.possibleValuesForListPickerComponents;
+            }
+            
+            break;
+            
+            
+        case HUNDREDS_COMPONENT:
+            if( row == 2 ) {
+                self.valuesForComponent2ForListPicker = [ self.possibleValuesForListPickerComponents
+                                                         subarrayWithRange:NSMakeRange(0,6) ];
+                self.hundredsFlag = TRUE;
+            }
+            
+            else {
+                self.valuesForComponent2ForListPicker = self.possibleValuesForListPickerComponents;
+                self.hundredsFlag = FALSE;
+            }
+            
+            break;
+            
+        default:
+            break;
     }
 }
 

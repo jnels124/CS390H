@@ -26,14 +26,17 @@
     IBOutlet UIPickerView *redPicker;
     IBOutlet UIPickerView *greenPicker;
     IBOutlet UIPickerView *bluePicker;
+    __weak IBOutlet UIButton *test;
     
              NSArray      *valuesForComponent1ForListPicker;
              NSArray      *valuesForComponent2ForListPicker;
              NSArray      *valuesForComponent3ForListPicker;
+             NSArray      *possibleValuesForListPickerComponents;
     
              NSString     *stringBuilderForRedPicker;
              NSString     *stringBuilderForGreenPicker;
              NSString     *stringBuilderForBluePicker;
+             Boolean      hundredsFlag;
 }
 
 @property IBOutlet UITextField  *redTextField;
@@ -47,12 +50,14 @@
 @property IBOutlet UIPickerView *greenPicker;
 @property IBOutlet UIPickerView *bluePicker;
 
+@property          NSArray      *possibleValuesForListPickerComponents;
 @property          NSArray      *valuesForComponent1ForListPicker;
 @property          NSArray      *valuesForComponent2ForListPicker;
 @property          NSArray      *valuesForComponent3ForListPicker;
 @property          NSString     *stringBuilderForRedPicker;
 @property          NSString     *stringBuilderForGreenPicker;
 @property          NSString     *stringBuilderForBluePicker;
+@property          Boolean      hundredsFlag;
 
 - (IBAction)redChanged:( id )sender;
 - (IBAction)greenChanged:( id )sender;
