@@ -19,20 +19,33 @@
             redPicker,    greenPicker,    bluePicker,
             display,
             hundredsFlag,
+            firebase,
+            dictionaryOfSavedColors,
             possibleValuesForListPickerComponents,
             valuesForComponent1ForListPicker,
             valuesForComponent2ForListPicker,
             valuesForComponent3ForListPicker,
-            stringBuilderForRedPicker, stringBuilderForGreenPicker, stringBuilderForBluePicker;
+            stringBuilderForRedPicker,
+            stringBuilderForGreenPicker,
+            stringBuilderForBluePicker;
 
 - (void)viewDidLoad {
     [ super viewDidLoad ];
     
+    self.firebase = [ [ Firebase alloc ] initWithUrl:
+                                      @"https://colorpicker.firebaseio.com"];
+    self.dictionaryOfSavedColors = [ [ NSMutableDictionary alloc ] init ];
+    
+    self.brain.redValue = self.brain.greenValue = self.brain.blueValue = 0;
+   
+    
+    
+    
     // Load values for number pickers
-    self.possibleValuesForListPickerComponents = [ [ NSArray  alloc ] init ];
-    self.valuesForComponent1ForListPicker =  [ [ NSArray  alloc ] init ];
-    self.valuesForComponent2ForListPicker =  [ [ NSArray  alloc ] init ];
-    self.valuesForComponent3ForListPicker =  [ [ NSArray  alloc ] init ];
+    self.possibleValuesForListPickerComponents =  [ [ NSArray  alloc ] init ];
+    self.valuesForComponent1ForListPicker      =  [ [ NSArray  alloc ] init ];
+    self.valuesForComponent2ForListPicker      =  [ [ NSArray  alloc ] init ];
+    self.valuesForComponent3ForListPicker      =  [ [ NSArray  alloc ] init ];
     
     // Initialze strings for textField
     self.redTextField.text           =
@@ -46,12 +59,13 @@
     
     for ( int i =0; i <=2; i++ ) {
         self.valuesForComponent1ForListPicker =
-                [ valuesForComponent1ForListPicker arrayByAddingObject:[ NSNumber numberWithInt:i ] ];
+            [ valuesForComponent1ForListPicker arrayByAddingObject:
+                                               [ NSNumber numberWithInt:i ] ];
     }
     
     for ( int i =0; i <=9; i++ ) {
         self.possibleValuesForListPickerComponents =
-         [ self.possibleValuesForListPickerComponents arrayByAddingObject:[NSNumber numberWithInt:i ] ];
+            [ self.possibleValuesForListPickerComponents arrayByAddingObject:[NSNumber numberWithInt:i ] ];
         self.valuesForComponent2ForListPicker =
                 [ valuesForComponent2ForListPicker arrayByAddingObject:[NSNumber numberWithInt:i ] ];
         self.valuesForComponent3ForListPicker =
@@ -89,6 +103,7 @@
     }
     
     [ self setDisplayBackgroundColor ];
+    
 }
 
 - (IBAction)greenChanged:( id )sender {
@@ -134,6 +149,13 @@
     self.display.backgroundColor =  self.brain.getColor;
 }
 
+- (IBAction)savePressed:( UIButton *)sender {
+    
+    
+}
+- (IBAction)recallPressed:( UIButton * )sender {
+}
+
 + (void)displayInvalidSenderError {
     UIAlertView *alert = [ [ UIAlertView alloc ] initWithTitle:@"Invalid Sender"
                                                        message:@"This method must be called with sender"
@@ -165,58 +187,33 @@
     return  -1; 
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
-                                    (NSInteger)row forComponent:(NSInteger)component {
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component {
     
     return [ NSString stringWithFormat:@"%d", ( row ) ];
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
-                                               inComponent:(NSInteger)component {
+- (void)pickerView:(UIPickerView *)pickerView
+      didSelectRow:(NSInteger)row
+       inComponent:(NSInteger)component {
+
     if ( pickerView == self.redPicker ) {
+        
         
         self.stringBuilderForRedPicker =
         [ self.stringBuilderForRedPicker stringByReplacingCharactersInRange:
                                             NSMakeRange( component, 1 )
-                                                                 withString:
-                                                [ NSString stringWithFormat:
-                                                    @"%d", row ]                    ];
+                                         withString:
+                                            [ NSString stringWithFormat:
+                                                        @"%d", row ] ];
         
          self.brain.redValue = [ self.stringBuilderForRedPicker intValue ];
         //NSLog(@"The value of the redvalue is ", stringBuilderForRedPicker ); ;
         printf( "The value of the redvalue is %d\n", brain.redValue );
         
         NSLog(@"The value for the string builder is %@\n", stringBuilderForRedPicker );
-        /*switch ( component ) {
-            case TENS_COMPONENT:
-                if ( row == 5 && self.hundredsFlag ) {
-                    self.valuesForComponent3ForListPicker = [ self.possibleValuesForListPickerComponents
-                                                             subarrayWithRange:NSMakeRange( 0, 6 ) ];
-                }
-                else {
-                    self.valuesForComponent3ForListPicker = self.possibleValuesForListPickerComponents;
-                }
-                
-                break;
         
-                
-            case HUNDREDS_COMPONENT:
-                if( row == 2 ) {
-                    self.valuesForComponent2ForListPicker = [ self.possibleValuesForListPickerComponents
-                                                              subarrayWithRange:NSMakeRange(0,6) ];
-                    self.hundredsFlag = TRUE;
-                }
-                
-                else {
-                    self.valuesForComponent2ForListPicker = self.possibleValuesForListPickerComponents;
-                    self.hundredsFlag = FALSE;
-                }
-                
-                break;
-                
-            default:
-                break;
-        }*/
         self.redTextField.text = self.stringBuilderForRedPicker;
         
         [ self.redPicker reloadAllComponents ];
@@ -245,9 +242,10 @@
     if ( pickerView == self.bluePicker ) {
         self.stringBuilderForBluePicker =
         [ self.stringBuilderForBluePicker stringByReplacingCharactersInRange:
-                                    NSMakeRange( component, 1 )
-                                                                   withString:
-                                    [ NSString stringWithFormat:@"%d", row ] ];
+                                                NSMakeRange( component, 1 )
+                                          withString:
+                                                [ NSString stringWithFormat:
+                                                            @"%d", row ] ];
         self.brain.blueValue = [ self.stringBuilderForBluePicker intValue ];
         self.blueTextField.text = self.stringBuilderForBluePicker;
         
@@ -285,6 +283,17 @@
         default:
             break;
     }
+    
+    [ self.dictionaryOfSavedColors setObject:[ NSString stringWithFormat:@"%d",
+                                              self.brain.redValue ] forKey:@"Red" ];
+    
+    [ self.dictionaryOfSavedColors setObject:[ NSString stringWithFormat:@"%d",
+                                              self.brain.greenValue ] forKey:@"Green" ];
+    [ self.dictionaryOfSavedColors setObject:[ NSString stringWithFormat:@"%d",
+                                              self.brain.blueValue ] forKey:@"Blue" ];
+    
+    [ firebase setValue:self.dictionaryOfSavedColors ];
+    
 }
 
 

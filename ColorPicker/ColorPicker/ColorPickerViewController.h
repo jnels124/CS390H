@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ColorPickerBrain.h"
+#import <Firebase/Firebase.h>
 
 #define HUNDREDS_COMPONENT 0
 #define TENS_COMPONENT     1
 #define ONES_COMPONENT     2
+
+#define ROUTE_TO_SAVED      @"/saved"
+
 
 @interface ColorPickerViewController : UIViewController
 < UIPickerViewDataSource, UIPickerViewDelegate > {
@@ -26,12 +30,13 @@
     IBOutlet UIPickerView *redPicker;
     IBOutlet UIPickerView *greenPicker;
     IBOutlet UIPickerView *bluePicker;
-    __weak IBOutlet UIButton *test;
+             Firebase     *firebase;
     
              NSArray      *valuesForComponent1ForListPicker;
              NSArray      *valuesForComponent2ForListPicker;
              NSArray      *valuesForComponent3ForListPicker;
              NSArray      *possibleValuesForListPickerComponents;
+             NSMutableDictionary *dictionaryOfSavedColors;
     
              NSString     *stringBuilderForRedPicker;
              NSString     *stringBuilderForGreenPicker;
@@ -59,11 +64,15 @@
 @property          NSString     *stringBuilderForBluePicker;
 @property          Boolean      hundredsFlag;
 
+@property          Firebase     *firebase;
+@property          NSMutableDictionary *dictionaryOfSavedColors;
+
 - (IBAction)redChanged:( id )sender;
 - (IBAction)greenChanged:( id )sender;
 - (IBAction)blueChanged:( id )sender;
+- (IBAction)savePressed:( UIButton *)sender;
+- (IBAction)recallPressed:( UIButton * )sender;
 
-- (void)setDisplayBackgroundColor;
 
 + ( void )displayInvalidSenderError;
 
