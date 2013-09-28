@@ -18,7 +18,8 @@
 
 
 @interface ColorPickerViewController : UIViewController
-< UIPickerViewDataSource, UIPickerViewDelegate > {
+< UIPickerViewDataSource, UIPickerViewDelegate,
+  UIAlertViewDelegate, UITextFieldDelegate >           {
     ColorPickerBrain      *brain;
     IBOutlet UITextField  *redTextField;
     IBOutlet UITextField  *greenTextField;
@@ -32,11 +33,12 @@
     IBOutlet UIPickerView *bluePicker;
              Firebase     *firebase;
     
-             NSArray      *valuesForComponent1ForListPicker;
-             NSArray      *valuesForComponent2ForListPicker;
-             NSArray      *valuesForComponent3ForListPicker;
-             NSArray      *possibleValuesForListPickerComponents;
+             NSArray             *valuesForComponent1ForListPicker;
+             NSArray             *valuesForComponent2ForListPicker;
+             NSArray             *valuesForComponent3ForListPicker;
+             NSArray             *possibleValuesForListPickerComponents;
              NSMutableDictionary *dictionaryOfSavedColors;
+             NSMutableDictionary *dictionaryOfCurrentColor;
     
              NSString     *stringBuilderForRedPicker;
              NSString     *stringBuilderForGreenPicker;
@@ -65,6 +67,7 @@
 @property          Boolean      hundredsFlag;
 
 @property          Firebase     *firebase;
+@property          NSMutableDictionary *dictionaryOfCurrentColor;
 @property          NSMutableDictionary *dictionaryOfSavedColors;
 
 - (IBAction)redChanged:( id )sender;
