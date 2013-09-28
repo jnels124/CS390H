@@ -31,12 +31,31 @@ stringBuilderForRedPicker,
 stringBuilderForGreenPicker,
 stringBuilderForBluePicker;
 
+
 - (void)viewDidLoad {
     [ super viewDidLoad ];
     
+    // Do any additional setup after loading the view, typically from a nib.
+    
     self.firebase = [ [ Firebase alloc ] initWithUrl:
                      @"https://colorpicker.firebaseio.com"];
-    self.dictionaryOfSavedColors = [ [ NSMutableDictionary alloc ] init ];
+    //self.dictionaryOfSavedColors
+    
+    // Get saved color from firebase else init dictionary of saved colors
+    
+    [ [ self.firebase childByAppendingPath:ROUTE_TO_SAVED ]
+     observeEventType:FEventTypeValue withBlock:
+     ^(FDataSnapshot *snapshot) {
+         if ( snapshot.value == [ NSNull null ] ) {
+             self.dictionaryOfSavedColors  = [ [ NSMutableDictionary alloc ] init ];
+         }
+         else {
+             self.dictionaryOfSavedColors = snapshot.value;
+         }
+     } ];
+    //if ( !self.dictionaryOfSavedColors )
+    
+    
     self.dictionaryOfCurrentColor = [ [ NSMutableDictionary alloc ] init ];
     
     self.brain.redValue = self.brain.greenValue = self.brain.blueValue = 0;
@@ -200,7 +219,7 @@ stringBuilderForBluePicker;
 
 #pragma mark - UIAlertView Methods
 - ( void ) alertView:(UIAlertView *)alertView clickedButtonAtIndex:
-                                            (NSInteger)buttonIndex {
+(NSInteger)buttonIndex {
     [ self.dictionaryOfSavedColors setObject:
      [ [ NSArray alloc ] initWithObjects:
       [ NSString stringWithFormat:@"%d",
@@ -211,7 +230,7 @@ stringBuilderForBluePicker;
        self.brain.blueValue  ],
       nil
       ]                forKey:[ alertView textFieldAtIndex:0 ].text/*[ NSString stringWithFormat:@"%@",
-                                       [requestColrName textFieldAtIndex:0 ].text ]*/
+                                                                    [requestColrName textFieldAtIndex:0 ].text ]*/
      ];
     
     [ [ firebase childByAppendingPath:ROUTE_TO_SAVED ]
@@ -316,20 +335,16 @@ stringBuilderForBluePicker;
             }
             
             break;
-            
-            
         case HUNDREDS_COMPONENT:
             if( row == 2 ) {
                 self.valuesForComponent2ForListPicker = [ self.possibleValuesForListPickerComponents
                                                          subarrayWithRange:NSMakeRange( 0, 6 ) ];
                 self.hundredsFlag = TRUE;
             }
-            
             else {
                 self.valuesForComponent2ForListPicker = self.possibleValuesForListPickerComponents;
                 self.hundredsFlag = FALSE;
             }
-            
             break;
             
         default:
@@ -342,7 +357,9 @@ stringBuilderForBluePicker;
                                                self.brain.greenValue ] forKey:@"Green" ];
     [ self.dictionaryOfCurrentColor setObject:[ NSString stringWithFormat:@"%d",
                                                self.brain.blueValue ] forKey:@"Blue" ];
-    [ firebase setValue:self.dictionaryOfCurrentColor ];
+    //[ firebase setValue:self.dictionaryOfCurrentColor ];
+    [ [ firebase childByAppendingPath:@"/currentcolor" ]
+     setValue:self.dictionaryOfCurrentColor ];
 }
 
 
