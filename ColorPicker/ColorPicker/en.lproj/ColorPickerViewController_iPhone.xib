@@ -57,6 +57,7 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <action selector="redChanged:" destination="-1" eventType="editingDidEnd" id="135"/>
+                        <outlet property="delegate" destination="-1" id="Uya-PR-LQS"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28">
@@ -70,6 +71,7 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <action selector="greenChanged:" destination="-1" eventType="editingDidEnd" id="134"/>
+                        <outlet property="delegate" destination="-1" id="Ga8-lU-f3p"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="32">
@@ -82,6 +84,7 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <action selector="blueChanged:" destination="-1" eventType="editingDidEnd" id="133"/>
+                        <outlet property="delegate" destination="-1" id="4vA-kG-Cg7"/>
                     </connections>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Red" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62">
@@ -106,7 +109,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87">
-                    <rect key="frame" x="11" y="359" width="298" height="116"/>
+                    <rect key="frame" x="13" y="432" width="298" height="116"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.01334474643" green="0.00057903342419999995" blue="0.017726732339999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -143,6 +146,26 @@
                         <outlet property="delegate" destination="-1" id="445"/>
                     </connections>
                 </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwC-s5-Y2z">
+                    <rect key="frame" x="35" y="363" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Save">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="savePressed:" destination="-1" eventType="touchUpInside" id="geu-dC-s4H"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxk-ht-8SB">
+                    <rect key="frame" x="234" y="363" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Recall">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="recallPressed:" destination="-1" eventType="touchUpInside" id="ecL-Ci-5E2"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

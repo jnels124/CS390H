@@ -40,28 +40,28 @@ stringBuilderForBluePicker;
     self.firebase = [ [ Firebase alloc ] initWithUrl:
                      @"https://colorpicker.firebaseio.com"];
     //self.dictionaryOfSavedColors
-    
     // Get saved color from firebase else init dictionary of saved colors
-    
+    //self.dictionaryOfSavedColors  = [ [ NSMutableDictionary alloc ] init ];
     [ [ self.firebase childByAppendingPath:ROUTE_TO_SAVED ]
      observeEventType:FEventTypeValue withBlock:
      ^(FDataSnapshot *snapshot) {
          if ( snapshot.value == [ NSNull null ] ) {
              self.dictionaryOfSavedColors  = [ [ NSMutableDictionary alloc ] init ];
          }
+         
+         /*if ( [ snapshot.value isKindOfClass:[ NSMutableDictionary class  ] ]) {
+             NSLog(@"The value is a dictionary");
+         }*/
+         
          else {
              self.dictionaryOfSavedColors = snapshot.value;
+             NSLog(@"There are %d values in the dictionary ", self.dictionaryOfSavedColors.count );
          }
+         //[ (NSMutableDictionary *)snapshot.value  objectForKey:@"Test1" ];
      } ];
-    //if ( !self.dictionaryOfSavedColors )
-    
     
     self.dictionaryOfCurrentColor = [ [ NSMutableDictionary alloc ] init ];
-    
     self.brain.redValue = self.brain.greenValue = self.brain.blueValue = 0;
-    
-    
-    
     
     // Load values for number pickers
     self.possibleValuesForListPickerComponents =  [ [ NSArray  alloc ] init ];
@@ -95,7 +95,6 @@ stringBuilderForBluePicker;
         self.valuesForComponent3ForListPicker =
         [ valuesForComponent3ForListPicker arrayByAddingObject:[NSNumber numberWithInt:i ] ];
     }
-    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -213,7 +212,6 @@ stringBuilderForBluePicker;
         
         [ textField resignFirstResponder ]; //Hide keyboard
     }
-    
     return NO;
 }
 
@@ -229,8 +227,7 @@ stringBuilderForBluePicker;
       [ NSString stringWithFormat:@"%d",
        self.brain.blueValue  ],
       nil
-      ]                forKey:[ alertView textFieldAtIndex:0 ].text/*[ NSString stringWithFormat:@"%@",
-                                                                    [requestColrName textFieldAtIndex:0 ].text ]*/
+      ]                            forKey:[ alertView textFieldAtIndex:0 ].text
      ];
     
     [ [ firebase childByAppendingPath:ROUTE_TO_SAVED ]
@@ -333,12 +330,11 @@ stringBuilderForBluePicker;
             else {
                 self.valuesForComponent3ForListPicker = self.possibleValuesForListPickerComponents;
             }
-            
             break;
         case HUNDREDS_COMPONENT:
             if( row == 2 ) {
-                self.valuesForComponent2ForListPicker = [ self.possibleValuesForListPickerComponents
-                                                         subarrayWithRange:NSMakeRange( 0, 6 ) ];
+                self.valuesForComponent2ForListPicker =
+                [ self.possibleValuesForListPickerComponents subarrayWithRange:NSMakeRange( 0, 6 ) ];
                 self.hundredsFlag = TRUE;
             }
             else {
@@ -352,11 +348,14 @@ stringBuilderForBluePicker;
     }
     
     [ self.dictionaryOfCurrentColor setObject:[ NSString stringWithFormat:@"%d",
-                                               self.brain.redValue ] forKey:@"Red" ];
+                                               self.brain.redValue ]
+                                       forKey:@"Red" ];
     [ self.dictionaryOfCurrentColor setObject:[ NSString stringWithFormat:@"%d",
-                                               self.brain.greenValue ] forKey:@"Green" ];
+                                               self.brain.greenValue ]
+                                       forKey:@"Green" ];
     [ self.dictionaryOfCurrentColor setObject:[ NSString stringWithFormat:@"%d",
-                                               self.brain.blueValue ] forKey:@"Blue" ];
+                                               self.brain.blueValue ]
+                                       forKey:@"Blue" ];
     //[ firebase setValue:self.dictionaryOfCurrentColor ];
     [ [ firebase childByAppendingPath:@"/currentcolor" ]
      setValue:self.dictionaryOfCurrentColor ];

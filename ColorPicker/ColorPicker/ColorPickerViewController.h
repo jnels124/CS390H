@@ -19,7 +19,7 @@
 
 @interface ColorPickerViewController : UIViewController
 < UIPickerViewDataSource, UIPickerViewDelegate,
-  UIAlertViewDelegate, UITextFieldDelegate >           {
+  UIAlertViewDelegate,    UITextFieldDelegate > {//UITableViewDelegate,    UITableViewDataSource >           {
     ColorPickerBrain      *brain;
     IBOutlet UITextField  *redTextField;
     IBOutlet UITextField  *greenTextField;
@@ -32,14 +32,12 @@
     IBOutlet UIPickerView *greenPicker;
     IBOutlet UIPickerView *bluePicker;
              Firebase     *firebase;
-    
              NSArray             *valuesForComponent1ForListPicker;
              NSArray             *valuesForComponent2ForListPicker;
              NSArray             *valuesForComponent3ForListPicker;
              NSArray             *possibleValuesForListPickerComponents;
              NSMutableDictionary *dictionaryOfSavedColors;
              NSMutableDictionary *dictionaryOfCurrentColor;
-    
              NSString     *stringBuilderForRedPicker;
              NSString     *stringBuilderForGreenPicker;
              NSString     *stringBuilderForBluePicker;
