@@ -7,7 +7,7 @@
 //
 
 #import "ColorPickerViewController.h"
-
+#import "TableViewController.h"
 @interface ColorPickerViewController ()
 @property (readonly) ColorPickerBrain *brain;
 @end
@@ -36,12 +36,10 @@ stringBuilderForBluePicker;
     [ super viewDidLoad ];
     
     // Do any additional setup after loading the view, typically from a nib.
-    
     self.firebase = [ [ Firebase alloc ] initWithUrl:
                      @"https://colorpicker.firebaseio.com"];
-    //self.dictionaryOfSavedColors
+
     // Get saved color from firebase else init dictionary of saved colors
-    //self.dictionaryOfSavedColors  = [ [ NSMutableDictionary alloc ] init ];
     [ [ self.firebase childByAppendingPath:ROUTE_TO_SAVED ]
      observeEventType:FEventTypeValue withBlock:
      ^(FDataSnapshot *snapshot) {
@@ -55,8 +53,12 @@ stringBuilderForBluePicker;
          
          else {
              self.dictionaryOfSavedColors = snapshot.value;
-             NSLog(@"There are %d values in the dictionary ", self.dictionaryOfSavedColors.count );
+             NSLog(@"There are %d values in the dictionary ",
+                   self.dictionaryOfSavedColors.count );
          }
+         
+         NSArray *keys  = [ self.dictionaryOfSavedColors allKeys ];
+         NSLog(@"There are %d keys ", keys.count );
          //[ (NSMutableDictionary *)snapshot.value  objectForKey:@"Test1" ];
      } ];
     
@@ -361,5 +363,23 @@ stringBuilderForBluePicker;
      setValue:self.dictionaryOfCurrentColor ];
 }
 
+-(IBAction)swithToSavedColorsView:(id)sender {
+    TableViewController *savedColorTable = [ [ TableViewController alloc ] initWithNibName:@"TableViewController" bundle:nil ];
+    [ self.view addSubview:savedColorTable.view ];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return 0;
+}
 
 @end

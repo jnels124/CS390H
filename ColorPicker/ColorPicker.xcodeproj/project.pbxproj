@@ -25,6 +25,9 @@
 		2C8C609D17EE48DA0065BDCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C609B17EE48DA0065BDCB /* InfoPlist.strings */; };
 		2C8C60A017EE48DA0065BDCB /* ColorPickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C609F17EE48DA0065BDCB /* ColorPickerTests.m */; };
 		2C8C60AB17EE49230065BDCB /* ColorPickerBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C60AA17EE49230065BDCB /* ColorPickerBrain.m */; };
+		2CA1314D17F8A89800AC6318 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1314B17F8A89800AC6318 /* TableViewController.m */; };
+		2CA1314E17F8A89800AC6318 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA1314C17F8A89800AC6318 /* TableViewController.xib */; };
+		D3FFBAD526184CD4B98E949C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B60F129A53A4982902ED7B4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,11 @@
 		2C8C609F17EE48DA0065BDCB /* ColorPickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorPickerTests.m; sourceTree = "<group>"; };
 		2C8C60A917EE49230065BDCB /* ColorPickerBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerBrain.h; sourceTree = "<group>"; };
 		2C8C60AA17EE49230065BDCB /* ColorPickerBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerBrain.m; sourceTree = "<group>"; };
+		2CA1314A17F8A89800AC6318 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		2CA1314B17F8A89800AC6318 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		2CA1314C17F8A89800AC6318 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
+		2CE0F043980648659BACC102 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		4B60F129A53A4982902ED7B4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 				2C8C606C17EE48DA0065BDCB /* UIKit.framework in Frameworks */,
 				2C8C606E17EE48DA0065BDCB /* Foundation.framework in Frameworks */,
 				2C8C607017EE48DA0065BDCB /* CoreGraphics.framework in Frameworks */,
+				D3FFBAD526184CD4B98E949C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +105,7 @@
 				2C8C609817EE48DA0065BDCB /* ColorPickerTests */,
 				2C8C606A17EE48DA0065BDCB /* Frameworks */,
 				2C8C606917EE48DA0065BDCB /* Products */,
+				2CE0F043980648659BACC102 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +125,7 @@
 				2C8C606D17EE48DA0065BDCB /* Foundation.framework */,
 				2C8C606F17EE48DA0065BDCB /* CoreGraphics.framework */,
 				2C8C609217EE48DA0065BDCB /* SenTestingKit.framework */,
+				4B60F129A53A4982902ED7B4 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,6 +133,9 @@
 		2C8C607117EE48DA0065BDCB /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
+				2CA1314A17F8A89800AC6318 /* TableViewController.h */,
+				2CA1314B17F8A89800AC6318 /* TableViewController.m */,
+				2CA1314C17F8A89800AC6318 /* TableViewController.xib */,
 				2C8C60A917EE49230065BDCB /* ColorPickerBrain.h */,
 				2C8C60AA17EE49230065BDCB /* ColorPickerBrain.m */,
 				2C8C607A17EE48DA0065BDCB /* ColorPickerAppDelegate.h */,
@@ -175,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C8C60A317EE48DA0065BDCB /* Build configuration list for PBXNativeTarget "ColorPicker" */;
 			buildPhases = (
+				1CEC9FC5EC054B8BAD5AD659 /* Check Pods Manifest.lock */,
 				2C8C606417EE48DA0065BDCB /* Sources */,
 				2C8C606517EE48DA0065BDCB /* Frameworks */,
 				2C8C606617EE48DA0065BDCB /* Resources */,
+				09688C9246E643C895C780F6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,6 +267,7 @@
 				2C8C608217EE48DA0065BDCB /* Default-568h@2x.png in Resources */,
 				2C8C608817EE48DA0065BDCB /* ColorPickerViewController_iPhone.xib in Resources */,
 				2C8C608B17EE48DA0065BDCB /* ColorPickerViewController_iPad.xib in Resources */,
+				2CA1314E17F8A89800AC6318 /* TableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +282,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		09688C9246E643C895C780F6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1CEC9FC5EC054B8BAD5AD659 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		2C8C608F17EE48DA0065BDCB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,6 +335,7 @@
 				2C8C607817EE48DA0065BDCB /* main.m in Sources */,
 				2C8C607C17EE48DA0065BDCB /* ColorPickerAppDelegate.m in Sources */,
 				2C8C608517EE48DA0065BDCB /* ColorPickerViewController.m in Sources */,
+				2CA1314D17F8A89800AC6318 /* TableViewController.m in Sources */,
 				2C8C60AB17EE49230065BDCB /* ColorPickerBrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +454,7 @@
 		};
 		2C8C60A417EE48DA0065BDCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CE0F043980648659BACC102 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -420,6 +469,7 @@
 		};
 		2C8C60A517EE48DA0065BDCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CE0F043980648659BACC102 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

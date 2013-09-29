@@ -163,7 +163,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="recallPressed:" destination="-1" eventType="touchUpInside" id="ecL-Ci-5E2"/>
+                        <action selector="swithToSavedColorsView:" destination="-1" eventType="touchUpInside" id="ty6-Kr-9j7"/>
                     </connections>
                 </button>
             </subviews>

@@ -7,8 +7,8 @@
 //
 
 #import "ColorPickerAppDelegate.h"
-
 #import "ColorPickerViewController.h"
+#import "TableViewController.h"
 
 @implementation ColorPickerAppDelegate
 
@@ -21,6 +21,7 @@
         self.viewController = [[ColorPickerViewController alloc] initWithNibName:@"ColorPickerViewController_iPad" bundle:nil];
     }
     self.window.rootViewController = self.viewController;
+    //self.window.rootViewController = [ TableViewController new ];
     [ self.window makeKeyAndVisible ];
     /*self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

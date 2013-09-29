@@ -73,6 +73,7 @@
 - (IBAction)blueChanged:( id )sender;
 - (IBAction)savePressed:( UIButton *)sender;
 - (IBAction)recallPressed:( UIButton * )sender;
+- (IBAction)swithToSavedColorsView:(id)sender;
 
 
 + ( void )displayInvalidSenderError;
