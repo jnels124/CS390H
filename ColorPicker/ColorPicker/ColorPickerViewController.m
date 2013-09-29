@@ -7,7 +7,7 @@
 //
 
 #import "ColorPickerViewController.h"
-#import "TableViewController.h"
+
 @interface ColorPickerViewController ()
 @property (readonly) ColorPickerBrain *brain;
 @end
@@ -19,6 +19,7 @@ redTextField, greenTextField, blueTextField,
 redStepper,   greenStepper,   blueStepper,
 redPicker,    greenPicker,    bluePicker,
 display,
+savedColorTable,
 hundredsFlag,
 firebase,
 dictionaryOfCurrentColor,
@@ -56,7 +57,7 @@ stringBuilderForBluePicker;
              NSLog(@"There are %d values in the dictionary ",
                    self.dictionaryOfSavedColors.count );
          }
-         
+         self.savedColorTable.numberOfRows = self.dictionaryOfSavedColors.count;
          NSArray *keys  = [ self.dictionaryOfSavedColors allKeys ];
          NSLog(@"There are %d keys ", keys.count );
          //[ (NSMutableDictionary *)snapshot.value  objectForKey:@"Test1" ];
@@ -364,8 +365,8 @@ stringBuilderForBluePicker;
 }
 
 -(IBAction)swithToSavedColorsView:(id)sender {
-    TableViewController *savedColorTable = [ [ TableViewController alloc ] initWithNibName:@"TableViewController" bundle:nil ];
-    [ self.view addSubview:savedColorTable.view ];
+    self.savedColorTable = [ [ TableViewController alloc ] initWithNibName:@"TableViewController" bundle:nil ];
+    [ self.view addSubview:self.savedColorTable.view ];
 }
 
 #pragma mark - Table view data source

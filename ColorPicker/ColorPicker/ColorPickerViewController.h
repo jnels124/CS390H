@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ColorPickerBrain.h"
 #import <Firebase/Firebase.h>
+#import "TableViewController.h"
 
 #define HUNDREDS_COMPONENT 0
 #define TENS_COMPONENT     1
@@ -42,6 +43,7 @@
              NSString     *stringBuilderForGreenPicker;
              NSString     *stringBuilderForBluePicker;
              Boolean      hundredsFlag;
+             TableViewController *savedColorTable;
 }
 
 @property IBOutlet UITextField  *redTextField;
@@ -63,6 +65,7 @@
 @property          NSString     *stringBuilderForGreenPicker;
 @property          NSString     *stringBuilderForBluePicker;
 @property          Boolean      hundredsFlag;
+@property          TableViewController *savedColorTable;
 
 @property          Firebase     *firebase;
 @property          NSMutableDictionary *dictionaryOfCurrentColor;
