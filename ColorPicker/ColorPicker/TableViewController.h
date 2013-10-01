@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewController : UITableViewController {
-    int numberOfRows;
+    int      numberOfRows;
+    NSArray  *itemsToDisplay;
+    NSString *textFromColorSelection;
 }
 
-@property int numberOfRows;
+@property int      numberOfRows;
+@property NSArray  *itemsToDisplay;
+@property NSString *textFromColorSelection;
 @end

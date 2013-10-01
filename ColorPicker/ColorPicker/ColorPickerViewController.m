@@ -39,6 +39,8 @@ stringBuilderForBluePicker;
     // Do any additional setup after loading the view, typically from a nib.
     self.firebase = [ [ Firebase alloc ] initWithUrl:
                      @"https://colorpicker.firebaseio.com"];
+    
+    self.savedColorTable = [ [ TableViewController alloc ] initWithNibName:@"TableViewController" bundle:nil ];
 
     // Get saved color from firebase else init dictionary of saved colors
     [ [ self.firebase childByAppendingPath:ROUTE_TO_SAVED ]
@@ -47,22 +49,20 @@ stringBuilderForBluePicker;
          if ( snapshot.value == [ NSNull null ] ) {
              self.dictionaryOfSavedColors  = [ [ NSMutableDictionary alloc ] init ];
          }
-         
-         /*if ( [ snapshot.value isKindOfClass:[ NSMutableDictionary class  ] ]) {
-             NSLog(@"The value is a dictionary");
-         }*/
-         
          else {
              self.dictionaryOfSavedColors = snapshot.value;
              NSLog(@"There are %d values in the dictionary ",
                    self.dictionaryOfSavedColors.count );
          }
-         self.savedColorTable.numberOfRows = self.dictionaryOfSavedColors.count;
+         
+         self.savedColorTable.itemsToDisplay =         //Set items for table view
+         [ self.dictionaryOfSavedColors allKeys ];
+         
          NSArray *keys  = [ self.dictionaryOfSavedColors allKeys ];
          NSLog(@"There are %d keys ", keys.count );
-         //[ (NSMutableDictionary *)snapshot.value  objectForKey:@"Test1" ];
      } ];
     
+    //NSLog(@"The value of num rows is %d", self.dictionaryOfSavedColors.count);
     self.dictionaryOfCurrentColor = [ [ NSMutableDictionary alloc ] init ];
     self.brain.redValue = self.brain.greenValue = self.brain.blueValue = 0;
     
@@ -235,6 +235,8 @@ stringBuilderForBluePicker;
     
     [ [ firebase childByAppendingPath:ROUTE_TO_SAVED ]
      setValue:self.dictionaryOfSavedColors ];
+    
+    self.savedColorTable.numberOfRows = self.dictionaryOfSavedColors.count;
     //NSLog(@"Inside the box %@ ", self.alertTextField.text );
 }
 
@@ -365,22 +367,12 @@ stringBuilderForBluePicker;
 }
 
 -(IBAction)swithToSavedColorsView:(id)sender {
-    self.savedColorTable = [ [ TableViewController alloc ] initWithNibName:@"TableViewController" bundle:nil ];
+    //TableViewController *colorTable = [ TableViewController alloc ] initWithNibName:@"TableViewController" bundle:nil ];
+    self.savedColorTable.numberOfRows = self.dictionaryOfSavedColors.count;
+    NSLog( @"Count in switch view is %d", self.dictionaryOfSavedColors.count );
     [ self.view addSubview:self.savedColorTable.view ];
+    //self.savedColorTable.numberOfRows = self.dictionaryOfSavedColors.count;
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 0;
-}
 
 @end
