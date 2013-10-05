@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <scenes>
+        <!--Color Picker View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ColorPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fdc-vk-toH"/>
+                        <viewControllerLayoutGuide type="bottom" id="S9U-33-Vxk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htD-ke-7vC">
+                                <rect key="frame" x="7" y="0.0" width="90" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="y13-xP-KmH" id="OAw-XP-aJu"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="17N-fF-exx"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-gZ-7SR">
+                                <rect key="frame" x="114" y="0.0" width="90" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="y13-xP-KmH" id="zpP-g3-7Sy"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="wzX-Qo-HQr"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-aX-Q3E">
+                                <rect key="frame" x="212" y="0.0" width="90" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="y13-xP-KmH" id="rn8-PV-gE8"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="4hm-7D-96N"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="liM-nk-p2F">
+                                <rect key="frame" x="24" y="202" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="redChanged:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="q4h-GM-NwU"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Gtn-Y7-m5O"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-sL-RmS">
+                                <rect key="frame" x="131" y="202" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="greenChanged:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="yz6-3d-uvX"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Emt-y0-a2e"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZZd-TU-HbA">
+                                <rect key="frame" x="237" y="202" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="blueChanged:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="sV6-gf-vpj"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="t0s-jJ-Y5q"/>
+                                </connections>
+                            </textField>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="255" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Du5-ue-fjD">
+                                <rect key="frame" x="7" y="235" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="redChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="ZD4-ok-q2J"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="255" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qwf-pz-thu">
+                                <rect key="frame" x="112" y="235" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="greenChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="1xv-cX-m68"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="255" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="R8Q-fU-G2w">
+                                <rect key="frame" x="218" y="235" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="blueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="jFr-hp-yoC"/>
+                                </connections>
+                            </stepper>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WD-qh-Hfh">
+                                <rect key="frame" x="28" y="294" width="257" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.023246433423913082" green="0.023246433423913082" blue="0.023246433423913082" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZr-9T-n0q">
+                                <rect key="frame" x="80" y="269" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="StY-LC-7QI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WV-85-5pn">
+                                <rect key="frame" x="185" y="269" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Recall">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="RecallPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="J6t-MS-VDB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2tw-cc-K74"/>
+                    <connections>
+                        <outlet property="brain" destination="y13-xP-KmH" id="jEA-vE-fc5"/>
+                        <outlet property="display" destination="6WD-qh-Hfh" id="BZB-17-1QI"/>
+                        <segue destination="qqN-Qz-7Na" kind="modal" identifier="TableView" id="Zmv-tK-wg3"/>
+                    </connections>
+                </viewController>
+                <customObject id="dTf-R2-F7U" customClass="ColorPickerObject">
+                    <connections>
+                        <outlet property="colorPicker" destination="htD-ke-7vC" id="W6A-wX-wH5"/>
+                        <outlet property="colorStepper" destination="Du5-ue-fjD" id="r2N-Xu-YOJ"/>
+                        <outlet property="colorTextField" destination="liM-nk-p2F" id="srQ-4a-DZq"/>
+                    </connections>
+                </customObject>
+                <customObject id="w8g-Rd-0ig" customClass="ColorPickerObject">
+                    <connections>
+                        <outlet property="colorPicker" destination="jd5-gZ-7SR" id="de4-Dd-BY8"/>
+                        <outlet property="colorStepper" destination="qwf-pz-thu" id="7RC-sI-hoH"/>
+                        <outlet property="colorTextField" destination="Mat-sL-RmS" id="k2n-rU-gib"/>
+                    </connections>
+                </customObject>
+                <customObject id="VQs-A0-Cfp" customClass="ColorPickerObject">
+                    <connections>
+                        <outlet property="colorPicker" destination="m1i-aX-Q3E" id="5xn-KO-bjH"/>
+                        <outlet property="colorStepper" destination="R8Q-fU-G2w" id="nNc-Z9-QLF"/>
+                        <outlet property="colorTextField" destination="ZZd-TU-HbA" id="oyd-dk-QXS"/>
+                    </connections>
+                </customObject>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <customObject id="y13-xP-KmH" customClass="ColorPickerBrain">
+                    <connections>
+                        <outlet property="blue" destination="VQs-A0-Cfp" id="U3r-uo-oYL"/>
+                        <outlet property="green" destination="w8g-Rd-0ig" id="9NI-bK-Ofd"/>
+                        <outlet property="red" destination="dTf-R2-F7U" id="rc8-I8-qK1"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-435" y="-129"/>
+        </scene>
+        <!--Color Picker Saved Color Table View Controller-->
+        <scene sceneID="ysL-wJ-8Kr">
+            <objects>
+                <tableViewController id="qqN-Qz-7Na" customClass="ColorPickerSavedColorTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jm9-vU-9fK" userLabel="TableView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="8ty-Ap-v04">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8ty-Ap-v04" id="Omv-J2-1dd">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="6MG-Do-Mu4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EBD-et-dXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="-111"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
