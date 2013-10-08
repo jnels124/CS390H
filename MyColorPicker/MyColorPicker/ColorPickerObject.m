@@ -15,7 +15,6 @@ colorPicker,
 colorStepper,
 colorTextField,
 colorIntegerValue,
-//possibleValuesForListPickerComponents,
 valuesForComponent1InColorPicker,
 valuesForComponent2InColorPicker,
 valuesForComponent3InColorPicker,
@@ -24,10 +23,12 @@ hundredsFlag;
 
 - (id) init {
     if ( self = [ super init ] ) {
-        //self.possibleValuesForListPickerComponents = [ [ NSArray alloc ] init ];
-        self.valuesForComponent1InColorPicker      = [ [ NSArray alloc ] init ];
-        self.valuesForComponent2InColorPicker      = [ [ NSArray alloc ] init ];
-        self.valuesForComponent3InColorPicker      = [ [ NSArray alloc ] init ];
+        self.valuesForComponent1InColorPicker =
+        [ [ NSArray alloc ] init ];
+        self.valuesForComponent2InColorPicker =
+        [ [ NSArray alloc ] init ];
+        self.valuesForComponent3InColorPicker =
+        [ [ NSArray alloc ] init ];
         
         for ( int i =0; i <=2; i++ ) {
             self.valuesForComponent1InColorPicker =

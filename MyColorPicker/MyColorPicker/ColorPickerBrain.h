@@ -32,12 +32,12 @@
 @property          NSMutableDictionary *dictionaryOfCurrentColor;
 @property          NSMutableDictionary *dictionaryOfSavedColors;
 @property          Firebase            *firebase;
-@property          NSArray             *possibleValuesForListPickerComponents;
+@property          NSArray
+*possibleValuesForListPickerComponents;
 
 - (void)makeNewColorObjectFromIBSender:(id)sender
                  ForCurrentColorObject:(ColorPickerObject *)color;
 - (ColorPickerObject *)determineColorOfSelectedPicker:(UIPickerView *)selectedPicker;
-- (void)initializeFirebase;
 - ( UIColor * )getColor;
 - (id)init;
 

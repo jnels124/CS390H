@@ -28,15 +28,14 @@ textFromColorSelection;
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [ super viewDidLoad ];
     
-    //self.itemsToDisplay = [ [ NSArray alloc ] init ];
     NSLog(@"In table view did load");
+    
     //Register reusable cell from storyboard to be used later.
     [ self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell" ];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -44,10 +43,18 @@ textFromColorSelection;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(id) init {
+    if ( self = [ super init ] ) {
+        self.itemsToDisplay = [ [ NSArray alloc ] init ];
+        self.textFromColorSelection = [ [ NSString alloc ] init ];
+        self.numberOfRows = 0;
+    }
+    return self;
 }
 
 #pragma mark - Table view data source
@@ -58,7 +65,6 @@ textFromColorSelection;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     NSLog(@"The number of rows in table view is %d", self.numberOfRows );
     return self.numberOfRows;
 }
@@ -70,30 +76,27 @@ textFromColorSelection;
     UITableViewCell *cell =
     [ tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                      forIndexPath:indexPath ];
-    
     if ( cell == nil ) {
-        cell = [ [ UITableViewCell alloc ] initWithStyle:UITableViewCellStyleDefault
-                                         reuseIdentifier:CellIdentifier];
+        cell =
+        [ [ UITableViewCell alloc ] initWithStyle:UITableViewCellStyleDefault
+                                  reuseIdentifier:CellIdentifier ];
     }
-    
-    cell.textLabel.text = [ self.itemsToDisplay objectAtIndex:indexPath.row ];
+    cell.textLabel.text =
+    [ self.itemsToDisplay objectAtIndex:indexPath.row ];
     
     return cell;
 }
 
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+#pragma mark - TableViewController delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
 (NSIndexPath *)indexPath {
-
+    
     self.textFromColorSelection = [ [ NSString alloc ] init ];
     UITableViewCell *cell = [ tableView cellForRowAtIndexPath:indexPath ];
     self.textFromColorSelection = cell.textLabel.text;
-
+    
     [ delegate myColorPickTableControllerDidSelectColor:
-     self.textFromColorSelection sender:self ]; // Tell main screen user picked a color
-    //[ self.view removeFromSuperview ]; // Go back to main screen.
+     self.textFromColorSelection sender:self ]; // Tell main screen user
 }
 
 /*
@@ -154,14 +157,4 @@ textFromColorSelection;
  [ self.view addSubview:self.savedColorTable.view ];
  //self.savedColorTable.numberOfRows = self.dictionaryOfSavedColors.count;
  }*/
-
--(id) init {
-    if ( self = [ super init ] ) {
-        self.itemsToDisplay = [ [ NSArray alloc ] init ];
-        self.textFromColorSelection = [ [ NSString alloc ] init ];
-        self.numberOfRows = 0;
-    }
-    return self;
-}
-
 @end

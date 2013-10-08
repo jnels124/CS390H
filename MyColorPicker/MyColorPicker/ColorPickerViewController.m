@@ -33,7 +33,7 @@ display;
     //[ self.brain initializeFirebase ]; ... Being done in init
     
     self.savedColorView =
-    [ [ ColorPickerSavedColorTableViewController alloc] init ];
+    [ [ ColorPickerSavedColorTableViewController alloc ] init ];
     self.savedColorView.delegate = self;
 }
 
@@ -60,10 +60,8 @@ display;
     [ self setDisplayBackgroundColor ];
 }
 
-
-
 - (IBAction)RecallPressed:(id)sender {
-    self.savedColorView.numberOfRows =
+    self.savedColorView.numberOfRows   =
     self.brain.dictionaryOfSavedColors.count;
     self.savedColorView.itemsToDisplay =
     [ self.brain.dictionaryOfSavedColors allKeys ];
@@ -91,7 +89,7 @@ display;
     self.display.backgroundColor =  self.brain.getColor;
 }
 
-#pragma mark - UITextField Methods
+#pragma mark - UITextField Delegate Methods
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     if ( textField == self.brain.red.colorTextField   ||
         textField == self.brain.green.colorTextField  ||
@@ -129,7 +127,7 @@ display;
         case TENS_COMPONENT:
             if ( row == 5 && selectedColor.hundredsFlag ) {
                 selectedColor.valuesForComponent3InColorPicker =
-                [ selectedColor.valuesForComponent3InColorPicker
+                [ self.brain.possibleValuesForListPickerComponents
                  subarrayWithRange:NSMakeRange( 0, 6 ) ];
             }
             else {
@@ -140,9 +138,9 @@ display;
         case HUNDREDS_COMPONENT:
             if( row == 2 ) {
                 selectedColor.valuesForComponent2InColorPicker =
-                [ selectedColor.valuesForComponent2InColorPicker
+                [ self.brain.possibleValuesForListPickerComponents
                  subarrayWithRange:NSMakeRange( 0, 6 ) ];
-    
+                
                 selectedColor.hundredsFlag = TRUE;
             }
             else {
@@ -152,23 +150,25 @@ display;
                 selectedColor.hundredsFlag = FALSE;
             }
             break;
-            
         default:
             break;
     }
-    
     [ self.brain.dictionaryOfCurrentColor setObject:
      [ NSString stringWithFormat:@"%d",
       self.brain.red.colorIntegerValue ]
                                              forKey:@"Red" ];
-    [ self.brain.dictionaryOfCurrentColor setObject:[ NSString stringWithFormat:@"%d",
-                                                     self.brain.green.colorIntegerValue ]
+    [ self.brain.dictionaryOfCurrentColor setObject:
+     [ NSString stringWithFormat:@"%d",
+      self.brain.green.colorIntegerValue ]
                                              forKey:@"Green" ];
-    [ self.brain.dictionaryOfCurrentColor setObject:[ NSString stringWithFormat:@"%d",
-                                                     self.brain.blue.colorIntegerValue]
+    [ self.brain.dictionaryOfCurrentColor setObject:
+     [ NSString stringWithFormat:@"%d",
+      self.brain.blue.colorIntegerValue ]
                                              forKey:@"Blue" ];
+    
     [ [ self.brain.firebase childByAppendingPath:@"/currentcolor" ]
      setValue:self.brain.dictionaryOfCurrentColor ];
+    
     selectedColor.colorTextField.text =
     selectedColor.stringBuilder;
     selectedColor.colorStepper.value =
@@ -191,7 +191,8 @@ display;
           [ NSString stringWithFormat:@"%d",
            self.brain.blue.colorIntegerValue  ],
           nil
-          ]                            forKey:[ alertView textFieldAtIndex:0 ].text
+          ]                            forKey:
+         [ alertView textFieldAtIndex:0 ].text
          ];
         
         [ [ self.brain.firebase childByAppendingPath:ROUTE_TO_SAVED ]
@@ -205,7 +206,7 @@ display;
     }
 }
 
-#pragma mark - ColorPickerSavedColorTableViewController delegate methods
+#pragma mark - ColorPickerSavedColorTableViewController delegate method
 - (void)myColorPickTableControllerDidSelectColor:
 (NSString *)selectedColor
                                           sender:

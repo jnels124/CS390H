@@ -71,10 +71,6 @@ firebase;
     return  -1;
 }
 
-- (void)initializeFirebase { //?????????
-    
-}
-
 - (ColorPickerObject *)determineColorOfSelectedPicker:
 (UIPickerView *)selectedPicker {
     if ( selectedPicker == self.red.colorPicker ) {
@@ -93,15 +89,18 @@ firebase;
 
 - (id) init {
     if ( self = [ super init ] ) {
-        self.possibleValuesForListPickerComponents = [ [ NSArray alloc ] init ];
+        self.possibleValuesForListPickerComponents =
+        [ [ NSArray alloc ] init ];
+        
         for ( int i =0; i <=9; i++ ) {
             self.possibleValuesForListPickerComponents =
             [ self.possibleValuesForListPickerComponents arrayByAddingObject:
              [ NSNumber numberWithInt:i ] ];
         }
-        self.dictionaryOfCurrentColor = [ [ NSMutableDictionary alloc ] init ];
-        //self.dictionaryOfSavedColors  = [ [ NSMutableDictionary alloc ] init ];
         
+        self.dictionaryOfCurrentColor =
+        [ [ NSMutableDictionary alloc ] init ];
+
         // Set up firebase
         self.firebase = [ [ Firebase alloc ] initWithUrl:
                          @"https://colorpicker.firebaseio.com"];
@@ -109,7 +108,8 @@ firebase;
          observeEventType:FEventTypeValue withBlock:
          ^(FDataSnapshot *snapshot) {
              if ( snapshot.value == [ NSNull null ] ) {
-                 self.dictionaryOfSavedColors  = [ [ NSMutableDictionary alloc ] init ];
+                 self.dictionaryOfSavedColors  =
+                 [ [ NSMutableDictionary alloc ] init ];
              }
              else {
                  self.dictionaryOfSavedColors = snapshot.value;
