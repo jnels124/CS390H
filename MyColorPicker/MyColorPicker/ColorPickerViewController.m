@@ -28,6 +28,7 @@ display;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"View did load in main controller was called");
 	// Do any additional setup after loading the view, typically from a nib.
     
     //[ self.brain initializeFirebase ]; ... Being done in init
@@ -60,15 +61,7 @@ display;
     [ self setDisplayBackgroundColor ];
 }
 
-- (IBAction)RecallPressed:(id)sender {
-    self.savedColorView.numberOfRows   =
-    self.brain.dictionaryOfSavedColors.count;
-    self.savedColorView.itemsToDisplay =
-    [ self.brain.dictionaryOfSavedColors allKeys ];
-    [ self.view addSubview:self.savedColorView.view ];
-}
-
-- (IBAction)savePressed:( UIButton *)sender {
+- (IBAction)savePressed:(id)sender {
     UIAlertView *requestColrName =
     [ [ UIAlertView alloc ] initWithTitle:
      @"Save"
@@ -85,8 +78,24 @@ display;
     [ requestColrName show ];
 }
 
+- (IBAction)RecallPressed:(id)sender {
+    [ self setUpItemsForTableView ];
+    NSLog(@"There are %d items in recall pressed", self.savedColorView.itemsToDisplay.count );
+    [ self.view addSubview:self.savedColorView.view ];
+}
+
 - (void)setDisplayBackgroundColor {
     self.display.backgroundColor =  self.brain.getColor;
+}
+
+-(void) setUpItemsForTableView {
+    self.savedColorView.numberOfRows =
+    self.brain.dictionaryOfSavedColors.count;
+    
+    self.savedColorView.itemsToDisplay =
+    [ self.brain.dictionaryOfSavedColors allKeys ];
+    
+    [ self.savedColorView.tableView reloadData ];
 }
 
 #pragma mark - UITextField Delegate Methods
@@ -198,12 +207,9 @@ display;
         [ [ self.brain.firebase childByAppendingPath:ROUTE_TO_SAVED ]
          setValue:self.brain.dictionaryOfSavedColors ];
         
-        self.savedColorView.numberOfRows =
-        self.brain.dictionaryOfSavedColors.count;
-        
-        self.savedColorView.itemsToDisplay =
-        [ self.brain.dictionaryOfSavedColors allKeys ];
+        [ self setUpItemsForTableView ];
     }
+    NSLog(@"There are %d items in alert view delegate pressed", self.savedColorView.itemsToDisplay.count );
 }
 
 #pragma mark - ColorPickerSavedColorTableViewController delegate method
@@ -213,7 +219,7 @@ display;
 (ColorPickerSavedColorTableViewController *)sender            {
     NSString *pathToColor =
     [ [ ROUTE_TO_SAVED stringByAppendingString:@"/" ] stringByAppendingString:selectedColor ];
-    NSLog(@"The path to the color is %@", pathToColor );
+    //NSLog(@"The path to the color is %@", pathToColor );
     [ [ self.brain.firebase  childByAppendingPath:pathToColor ]
      observeEventType:FEventTypeValue withBlock:
      ^(FDataSnapshot *snapshot) {

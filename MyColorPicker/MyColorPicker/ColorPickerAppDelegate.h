@@ -11,5 +11,4 @@
 @interface ColorPickerAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @end

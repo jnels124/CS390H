@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htD-ke-7vC">
-                                <rect key="frame" x="7" y="0.0" width="90" height="162"/>
+                                <rect key="frame" x="13" y="26" width="90" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="y13-xP-KmH" id="OAw-XP-aJu"/>
@@ -25,7 +25,7 @@
                                 </connections>
                             </pickerView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-gZ-7SR">
-                                <rect key="frame" x="114" y="0.0" width="90" height="162"/>
+                                <rect key="frame" x="115" y="26" width="90" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="y13-xP-KmH" id="zpP-g3-7Sy"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </pickerView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-aX-Q3E">
-                                <rect key="frame" x="212" y="0.0" width="90" height="162"/>
+                                <rect key="frame" x="217" y="26" width="90" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="y13-xP-KmH" id="rn8-PV-gE8"/>
@@ -41,7 +41,7 @@
                                 </connections>
                             </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="liM-nk-p2F">
-                                <rect key="frame" x="24" y="202" width="56" height="30"/>
+                                <rect key="frame" x="30" y="221" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-sL-RmS">
-                                <rect key="frame" x="131" y="202" width="56" height="30"/>
+                                <rect key="frame" x="128" y="221" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -61,7 +61,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZZd-TU-HbA">
-                                <rect key="frame" x="237" y="202" width="56" height="30"/>
+                                <rect key="frame" x="234" y="221" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -71,45 +71,73 @@
                                 </connections>
                             </textField>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="255" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Du5-ue-fjD">
-                                <rect key="frame" x="7" y="235" width="94" height="29"/>
+                                <rect key="frame" x="11" y="259" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="redChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="ZD4-ok-q2J"/>
                                 </connections>
                             </stepper>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="255" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qwf-pz-thu">
-                                <rect key="frame" x="112" y="235" width="94" height="29"/>
+                                <rect key="frame" x="113" y="259" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="greenChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="1xv-cX-m68"/>
                                 </connections>
                             </stepper>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="255" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="R8Q-fU-G2w">
-                                <rect key="frame" x="218" y="235" width="94" height="29"/>
+                                <rect key="frame" x="215" y="259" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="blueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="jFr-hp-yoC"/>
                                 </connections>
                             </stepper>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WD-qh-Hfh">
-                                <rect key="frame" x="28" y="294" width="257" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WD-qh-Hfh">
+                                <rect key="frame" x="32" y="307" width="257" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.023246433423913082" green="0.023246433423913082" blue="0.023246433423913082" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZr-9T-n0q">
-                                <rect key="frame" x="80" y="269" width="46" height="30"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7X-2E-dZ6">
+                                <rect key="frame" x="0.0" y="26" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Save" id="lgi-vt-KfF">
+                                        <connections>
+                                            <action selector="savePressed:" destination="vXZ-lx-hvc" id="32I-mi-P5O"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Recall" id="CUb-1S-bKg">
+                                        <connections>
+                                            <action selector="RecallPressed:" destination="vXZ-lx-hvc" id="3tB-C2-F9b"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="color-wheel-300.gif" translatesAutoresizingMaskIntoConstraints="NO" id="VgL-ru-W2X">
+                                <rect key="frame" x="274" y="33" width="33" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save">
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" id="59X-7B-orq">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uZr-9T-n0q">
+                                <rect key="frame" x="16" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="savePressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="StY-LC-7QI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WV-85-5pn">
-                                <rect key="frame" x="185" y="269" width="46" height="30"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="xuf-fW-sw7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1WV-85-5pn">
+                                <rect key="frame" x="72" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Recall">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,13 +146,15 @@
                                     <action selector="RecallPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="J6t-MS-VDB"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="2tw-cc-K74"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="brain" destination="y13-xP-KmH" id="jEA-vE-fc5"/>
                         <outlet property="display" destination="6WD-qh-Hfh" id="BZB-17-1QI"/>
+                        <outlet property="searchDisplayController" destination="Xcf-pR-ijW" id="bI7-63-IhE"/>
+                        <outlet property="toolBar" destination="w7X-2E-dZ6" id="cP1-Om-Usr"/>
                         <segue destination="qqN-Qz-7Na" kind="modal" identifier="TableView" id="Zmv-tK-wg3"/>
                     </connections>
                 </viewController>
@@ -157,8 +187,16 @@
                         <outlet property="red" destination="dTf-R2-F7U" id="rc8-I8-qK1"/>
                     </connections>
                 </customObject>
+                <searchDisplayController id="Xcf-pR-ijW">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="sb6-XA-jdO"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="zYJ-qv-jFJ"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="wSn-W4-YFb"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="ZTX-1M-TVQ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-903" y="-59"/>
+            <point key="canvasLocation" x="-805" y="-75"/>
         </scene>
         <!--Color Picker Saved Color Table View Controller-->
         <scene sceneID="ysL-wJ-8Kr">
@@ -186,6 +224,9 @@
             <point key="canvasLocation" x="-195" y="-59"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="color-wheel-300.gif" width="300" height="300"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

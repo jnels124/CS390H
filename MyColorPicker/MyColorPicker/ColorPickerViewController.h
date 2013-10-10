@@ -15,10 +15,12 @@
   myColorPickTableControllerDelegate > {
     IBOutlet UITextView       *display;
     IBOutlet ColorPickerBrain *brain;
+    IBOutlet UIToolbar *toolBar;
     ColorPickerSavedColorTableViewController *savedColorView;
 }
 
 @property IBOutlet UITextView *display;
+@property IBOutlet UIToolbar *toolBar;
 @property ColorPickerSavedColorTableViewController *savedColorView;
 
 - (IBAction)redChanged:( id )sender;
@@ -27,5 +29,6 @@
 - (IBAction)savePressed:(id)sender;
 - (IBAction)RecallPressed:(id)sender;
 - (void)setDisplayBackgroundColor;
+-(void) setUpItemsForTableView;
 
 @end

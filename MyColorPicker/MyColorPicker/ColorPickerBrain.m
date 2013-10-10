@@ -100,7 +100,6 @@ firebase;
         
         self.dictionaryOfCurrentColor =
         [ [ NSMutableDictionary alloc ] init ];
-
         // Set up firebase
         self.firebase = [ [ Firebase alloc ] initWithUrl:
                          @"https://colorpicker.firebaseio.com"];
@@ -113,12 +112,12 @@ firebase;
              }
              else {
                  self.dictionaryOfSavedColors = snapshot.value;
-                 NSLog(@"There are %d values in the dictionary ",
-                       self.dictionaryOfSavedColors.count );
+                 //NSLog(@"There are %d values in the dictionary ",
+             //          self.dictionaryOfSavedColors.count );
              }
              
              NSArray *keys  = [ self.dictionaryOfSavedColors allKeys ];
-             NSLog(@"There are %d keys ", keys.count );
+             //NSLog(@"There are %d keys ", keys.count );
          } ];
     }
     return self;

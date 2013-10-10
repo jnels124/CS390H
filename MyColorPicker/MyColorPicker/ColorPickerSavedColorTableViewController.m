@@ -34,13 +34,12 @@ textFromColorSelection;
     NSLog(@"In table view did load");
     
     //Register reusable cell from storyboard to be used later.
-    [ self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell" ];
-    
+    /*[ self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell" ];*/
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,13 +52,16 @@ textFromColorSelection;
         self.itemsToDisplay = [ [ NSArray alloc ] init ];
         self.textFromColorSelection = [ [ NSString alloc ] init ];
         self.numberOfRows = 0;
+        
+        [ self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell" ];
     }
     return self;
 }
 
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"Number of sections in table view was called");
+    //NSLog(@"Number of sections in table view was called");
     // Return the number of sections.
     return 1;
 }
@@ -148,13 +150,5 @@ textFromColorSelection;
  // Pass the selected object to the new view controller.
  }
  
- 
- 
- -(IBAction)swithToSavedColorsView:(id)sender {
- //TableViewController *colorTable = [ TableViewController alloc ] initWithNibName:@"TableViewController" bundle:nil ];
- self.brain.savedColorTable.numberOfRows = self.dictionaryOfSavedColors.count;
- NSLog( @"Count in switch view is %d", self.dictionaryOfSavedColors.count );
- [ self.view addSubview:self.savedColorTable.view ];
- //self.savedColorTable.numberOfRows = self.dictionaryOfSavedColors.count;
- }*/
+ */
 @end

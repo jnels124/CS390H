@@ -1,21 +1,21 @@
 //
-//  ColorPickerAppDelegate.m
-//  MyColorPicker
+//  CalculatorAppDelegate.m
+//  Calculator
 //
-//  Created by Jesse Nelson on 10/1/13.
+//  Created by Jesse Nelson on 10/10/13.
 //  Copyright (c) 2013 Jesse Nelson. All rights reserved.
 //
 
-#import "ColorPickerAppDelegate.h"
+#import "CalculatorAppDelegate.h"
 
-@implementation ColorPickerAppDelegate
+@implementation CalculatorAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     return YES;
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -24,7 +24,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -42,22 +42,5 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation     {
-    NSLog(@"Open application called");
-    return [ self application:application handleOpenURL:url ] ;
-}
-
-// Depracted
-- (BOOL)application:(UIApplication *)application
-      handleOpenURL:(NSURL *)url {
-    NSLog(@"application handleOpenURL called");
-    return YES;
-}
-
-
 
 @end
