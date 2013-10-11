@@ -112,6 +112,11 @@
                                             <action selector="RecallPressed:" destination="vXZ-lx-hvc" id="3tB-C2-F9b"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Done" id="UCS-nA-yG0">
+                                        <connections>
+                                            <action selector="finishedPickingColor:" destination="vXZ-lx-hvc" id="hDe-fZ-Y1H"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>

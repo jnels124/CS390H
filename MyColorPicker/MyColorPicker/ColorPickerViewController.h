@@ -28,6 +28,7 @@
 - (IBAction)blueChanged:(id)sender;
 - (IBAction)savePressed:(id)sender;
 - (IBAction)RecallPressed:(id)sender;
+- (IBAction)finishedPickingColor:(id)sender;
 - (void)setDisplayBackgroundColor;
 -(void) setUpItemsForTableView;
 

@@ -84,6 +84,42 @@ display;
     [ self.view addSubview:self.savedColorView.view ];
 }
 
+- (IBAction)finishedPickingColor:(UIButton*)sender {
+    NSMutableArray *colors =
+    [ [ NSMutableArray alloc ] init ];
+    [ colors addObject:self.brain.red.stringBuilder ];
+    [ colors addObject:self.brain.green.stringBuilder ];
+    [ colors addObject:self.brain.blue.stringBuilder ];
+    
+    NSLog(@"There are %d values in colors", colors.count );
+    NSMutableString *query = [NSMutableString string];
+    for (id val in colors) {
+        NSLog(@"Inside for loop of finished picking color" );
+        if (query.length) {
+            [ query appendString:@"&" ];
+            NSLog(@"Inside if of for loop of finished picking color" );
+        }
+        
+        [ query appendFormat:@"v=%@", val ];
+    }
+    NSLog(@"The query var is %@", query );
+    
+    NSString *urlStr =
+    [@"myCalculator://colors?" stringByAppendingString:query];
+    NSURL *url =
+    [ NSURL URLWithString:urlStr ];
+    
+    UIApplication *test =
+    [ UIApplication sharedApplication ];
+    
+    BOOL found =
+    [ test openURL:url ];
+    
+    NSLog(@"the query in colorpicker is %@", [ url query ] );
+    if (found) NSLog( @"Resource was found" );
+    
+    else NSLog(@"unable to locate resource" );
+}
 - (void)setDisplayBackgroundColor {
     self.display.backgroundColor =  self.brain.getColor;
 }
