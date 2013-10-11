@@ -43,4 +43,35 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation     {
+    NSLog(@"Open application called in calculator");
+    return [ self application:application handleOpenURL:url ] ;
+}
+
+// Depracted
+- (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url {
+    NSLog(@"The query is %@", [url query]);
+    NSLog(@"Handling URL in calculator");
+    NSString *query = [url query];
+    NSArray *parts = [query componentsSeparatedByString:@"&"];
+    NSMutableArray *values = [NSMutableArray array];
+    for (NSString *part in parts) {
+        NSRange equal = [part rangeOfString:@"="];
+        NSLog(@"The part is %@", part);
+        NSString *value = [part substringFromIndex:equal.location + equal.length];
+        NSLog(@"The value is %@", part);
+        //[values addObject:value]; // If you want the value as a string
+        [values addObject:[NSNumber numberWithInt:[value intValue]]]; // If you want the value as a number
+    }
+    
+    for ( NSString *value in values ) {
+        NSLog(@"%@", value);
+    }
+    //NSLog(@"There were %d values passed in ", values.count );
+    return YES;
+}
 @end
