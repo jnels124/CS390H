@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CalculatorBrain.h"
+#import "CalculatorAppDelegate.h"
 static NSString *kViewerURLScheme = @"com.winnerscircle.MyColorPicker";
 
 @interface CalculatorViewController : UIViewController {
@@ -17,8 +18,10 @@ static NSString *kViewerURLScheme = @"com.winnerscircle.MyColorPicker";
     
 }
 
+@property IBOutlet UILabel *display;
+
 - (IBAction)digitPressed:(UIButton *)sender;
 - (IBAction)operationPressed:(UIButton *)sender;
 - (IBAction)colorChangePressed:(UIButton *)sender;
-
+- (void)setLabelColor;
 @end

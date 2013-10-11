@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CalculatorAppDelegate : UIResponder <UIApplicationDelegate>
+#import "CalculatorViewController.h"
+@interface CalculatorAppDelegate : UIResponder <UIApplicationDelegate> {
+    UIColor *selectedColor;
+}
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property UIColor *selectedColor;;
 @end

@@ -8,12 +8,18 @@
 
 #import "CalculatorAppDelegate.h"
 
-@implementation CalculatorAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+@implementation CalculatorAppDelegate
+@synthesize selectedColor;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    /*self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.viewController = [[CalculatorViewController alloc] initWithNibName:@"CalculatorViewController" bundle:nil];
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
     return YES;
+    // Override point for customization after application launch.*/
+    return NO;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -71,6 +77,17 @@
     for ( NSString *value in values ) {
         NSLog(@"%@", value);
     }
+    
+    
+    self.selectedColor =
+    [ UIColor colorWithRed:
+     [ [ values objectAtIndex:0 ] intValue ]/ 255.0
+                     green:
+     [ [values objectAtIndex:1 ] intValue ] / 255.0
+                      blue:
+     [ [values objectAtIndex:2 ] intValue ] / 255.0 
+                     alpha:100 ];
+    //self.window.rootViewController.
     //NSLog(@"There were %d values passed in ", values.count );
     return YES;
 }
