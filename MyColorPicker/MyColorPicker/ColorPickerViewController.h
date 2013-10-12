@@ -30,6 +30,7 @@
 - (IBAction)RecallPressed:(id)sender;
 - (IBAction)finishedPickingColor:(id)sender;
 - (void)setDisplayBackgroundColor;
--(void) setUpItemsForTableView;
+- (void)setUpItemsForTableView;
+- (void)setColorComponentsToSelectedColor:(NSArray *)selectedColor;
 
 @end
