@@ -21,22 +21,25 @@ firebase;
 
 - (void)makeNewColorObjectFromIBSender:( id )sender
                  ForCurrentColorObject:(ColorPickerObject *) color {
-    //ColorPickerObject *changedColor = [ [ ColorPickerObject alloc ] init ];
+    
+    NSString *textValueFromSender =
+    [ [ NSString alloc ] init ];
+    
     if ( [ sender isKindOfClass:[ UIStepper class ] ] ) {
-        color.colorTextField.text = [ NSString stringWithFormat:@"%d",
-                                     [ [ NSNumber numberWithDouble:[ (UIStepper *) sender value ] ] intValue ] ];
-        color.colorIntegerValue =
-        [ [ NSNumber numberWithDouble:[ (UIStepper *) sender value ] ] intValue ];
+        textValueFromSender =
+        [ NSString stringWithFormat:@"%d",
+         [ [ NSNumber numberWithDouble:[ (UIStepper *) sender value ] ] intValue ] ];
     }
     else if ( [ sender isKindOfClass:[ UITextField class ] ] ) {
-        color.colorStepper.value =
-        [ [ (UITextField *)sender text ] doubleValue ];
-        color.colorIntegerValue =
-        [ [ (UITextField *)sender text ] intValue ];
+        textValueFromSender = ((UITextField *)sender).text;
     }
-    else { // This shouldn't happen!!!
-        //[ ColorPickerViewController displayInvalidSenderError ];
+                                            
+    while ( textValueFromSender.length < 3 ) {
+        textValueFromSender =
+        [ @"0" stringByAppendingString:textValueFromSender ];
     }
+    
+    [ self resetColor:color withNewValue:textValueFromSender ];
 }
 
 - ( UIColor * )getColor {
@@ -69,6 +72,73 @@ firebase;
     }
     
     return  -1;
+}
+
+- (void)handlePickerView:(UIPickerView *)pickerView
+         withSelectedRow:(NSInteger)row
+           FromComponent:(NSInteger)component {
+    
+    ColorPickerObject *selectedColor =
+    [ self determineColorOfSelectedPicker:pickerView ];
+    
+    selectedColor.stringBuilder =
+    [ selectedColor.stringBuilder stringByReplacingCharactersInRange:
+     NSMakeRange( component, 1 )
+                                                          withString:
+     [ NSString stringWithFormat:@"%d", row ] ];
+    
+    selectedColor.colorIntegerValue =
+    [ selectedColor.stringBuilder intValue ];
+    
+    switch ( component ) {
+        case TENS_COMPONENT:
+            if ( row == 5 && selectedColor.hundredsFlag ) {
+                selectedColor.valuesForComponent3InColorPicker =
+                [ self.possibleValuesForListPickerComponents
+                 subarrayWithRange:NSMakeRange( 0, 6 ) ];
+            }
+            else {
+                selectedColor.valuesForComponent3InColorPicker =
+                self.possibleValuesForListPickerComponents;
+            }
+            break;
+        case HUNDREDS_COMPONENT:
+            if( row == 2 ) {
+                selectedColor.valuesForComponent2InColorPicker =
+                [ self.possibleValuesForListPickerComponents
+                 subarrayWithRange:NSMakeRange( 0, 6 ) ];
+                
+                selectedColor.hundredsFlag = TRUE;
+            }
+            else {
+                selectedColor.valuesForComponent2InColorPicker =
+                self.possibleValuesForListPickerComponents;
+                
+                selectedColor.hundredsFlag = FALSE;
+            }
+            break;
+        default:
+            break;
+    }
+    [ self.dictionaryOfCurrentColor setObject:
+     self.red.stringBuilder
+                                       forKey:@"Red" ];
+    [ self.dictionaryOfCurrentColor setObject:
+     self.green.stringBuilder
+                                       forKey:@"Green" ];
+    [ self.dictionaryOfCurrentColor setObject:
+     self.blue.stringBuilder
+                                       forKey:@"Blue" ];
+    
+    [ [ self.firebase childByAppendingPath:@"/currentcolor" ]
+     setValue:self.dictionaryOfCurrentColor ];
+    
+    selectedColor.colorTextField.text =
+    selectedColor.stringBuilder;
+    selectedColor.colorStepper.value =
+    [ selectedColor.stringBuilder doubleValue ];
+    
+    [ selectedColor.colorPicker reloadAllComponents ];
 }
 
 - (ColorPickerObject *)determineColorOfSelectedPicker:
@@ -113,13 +183,42 @@ firebase;
              else {
                  self.dictionaryOfSavedColors = snapshot.value;
                  //NSLog(@"There are %d values in the dictionary ",
-             //          self.dictionaryOfSavedColors.count );
+                 //          self.dictionaryOfSavedColors.count );
              }
              
-             NSArray *keys  = [ self.dictionaryOfSavedColors allKeys ];
+             //NSArray *keys  = [ self.dictionaryOfSavedColors allKeys ];
              //NSLog(@"There are %d keys ", keys.count );
          } ];
     }
     return self;
 }
+
+- (void)setColorComponentsToSelectedColor:(NSArray *)selectedColor {
+    [ self resetColor:self.red withNewValue:[ selectedColor objectAtIndex:0 ] ];
+    [ self resetColor:self.green withNewValue:[ selectedColor objectAtIndex:1 ] ];
+    [ self resetColor:self.blue withNewValue:[ selectedColor objectAtIndex:2 ] ];
+}
+
+- (void) resetColor:(ColorPickerObject *)color withNewValue:(NSString*)newValue {
+    color.colorStepper.value  =
+    color.colorIntegerValue   = [ newValue intValue ];
+    color.stringBuilder       =
+    color.colorTextField.text = newValue;
+    [ self setPickerViewComponents:color.colorPicker
+                         WithValue:newValue ];
+}
+
+- (void) setPickerViewComponents:(UIPickerView *)selectedColor
+                       WithValue:(NSString *) colorValue {
+    
+    NSLog(@"The color value in setPickerViewComponents is %@", colorValue );
+    for ( int i = 0; i <= 2; i++ ) {
+        [ selectedColor selectRow:
+         [ [ NSString stringWithFormat:@"%c",
+            [ colorValue characterAtIndex:i ] ] intValue]
+                      inComponent:i animated:YES ];
+    }
+    
+}
+
 @end

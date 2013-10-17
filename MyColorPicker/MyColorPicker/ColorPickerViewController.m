@@ -91,7 +91,7 @@ display;
     [ colors addObject:self.brain.green.stringBuilder ];
     [ colors addObject:self.brain.blue.stringBuilder ];
     
-    NSLog(@"There are %d values in colors", colors.count );
+    //NSLog(@"There are %d values in colors", colors.count );
     NSMutableString *query = [NSMutableString string];
     for (id val in colors) {
         NSLog(@"Inside for loop of finished picking color" );
@@ -102,7 +102,7 @@ display;
         
         [ query appendFormat:@"v=%@", val ];
     }
-    NSLog(@"The query var is %@", query );
+    //NSLog(@"The query var is %@", query );
     
     NSString *urlStr =
     [@"myCalculator://colors?" stringByAppendingString:query];
@@ -112,14 +112,15 @@ display;
     UIApplication *test =
     [ UIApplication sharedApplication ];
     
-    BOOL found =
+    //BOOL found =
     [ test openURL:url ];
     
-    NSLog(@"the query in colorpicker is %@", [ url query ] );
+    /*NSLog(@"the query in colorpicker is %@", [ url query ] );
     if (found) NSLog( @"Resource was found" );
     
-    else NSLog(@"unable to locate resource" );
+    else NSLog(@"unable to locate resource" );*/
 }
+
 - (void)setDisplayBackgroundColor {
     self.display.backgroundColor =  self.brain.getColor;
 }
@@ -148,7 +149,6 @@ display;
 - (NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component {
-    
     return [ NSString stringWithFormat:@"%d", ( row ) ];
 }
 
@@ -156,67 +156,10 @@ display;
       didSelectRow:(NSInteger)row
        inComponent:(NSInteger)component {
     
-    ColorPickerObject *selectedColor =
-    [ self.brain determineColorOfSelectedPicker:pickerView ];
+    [ self.brain handlePickerView:pickerView
+                  withSelectedRow:row
+                    FromComponent:component ];
     
-    selectedColor.stringBuilder =
-    [ selectedColor.stringBuilder stringByReplacingCharactersInRange:
-     NSMakeRange( component, 1 )
-                                                          withString:
-     [ NSString stringWithFormat:@"%d", row ] ];
-    
-    selectedColor.colorIntegerValue =
-    [ selectedColor.stringBuilder intValue ];
-    
-    switch ( component ) {
-        case TENS_COMPONENT:
-            if ( row == 5 && selectedColor.hundredsFlag ) {
-                selectedColor.valuesForComponent3InColorPicker =
-                [ self.brain.possibleValuesForListPickerComponents
-                 subarrayWithRange:NSMakeRange( 0, 6 ) ];
-            }
-            else {
-                selectedColor.valuesForComponent3InColorPicker =
-                self.brain.possibleValuesForListPickerComponents;
-            }
-            break;
-        case HUNDREDS_COMPONENT:
-            if( row == 2 ) {
-                selectedColor.valuesForComponent2InColorPicker =
-                [ self.brain.possibleValuesForListPickerComponents
-                 subarrayWithRange:NSMakeRange( 0, 6 ) ];
-                
-                selectedColor.hundredsFlag = TRUE;
-            }
-            else {
-                selectedColor.valuesForComponent2InColorPicker =
-                self.brain.possibleValuesForListPickerComponents;
-                
-                selectedColor.hundredsFlag = FALSE;
-            }
-            break;
-        default:
-            break;
-    }
-    [ self.brain.dictionaryOfCurrentColor setObject:
-     self.brain.red.stringBuilder
-                                             forKey:@"Red" ];
-    [ self.brain.dictionaryOfCurrentColor setObject:
-     self.brain.green.stringBuilder
-                                             forKey:@"Green" ];
-    [ self.brain.dictionaryOfCurrentColor setObject:
-     self.brain.blue.stringBuilder
-                                             forKey:@"Blue" ];
-    
-    [ [ self.brain.firebase childByAppendingPath:@"/currentcolor" ]
-     setValue:self.brain.dictionaryOfCurrentColor ];
-    
-    selectedColor.colorTextField.text =
-    selectedColor.stringBuilder;
-    selectedColor.colorStepper.value =
-    [ selectedColor.stringBuilder doubleValue ];
-    
-    [ selectedColor.colorPicker reloadAllComponents ];
     [ self setDisplayBackgroundColor ];
 }
 
@@ -259,61 +202,12 @@ display;
          else {
              // Set background to selected color
              
-             [ self setColorComponentsToSelectedColor:snapshot.value ];
+             [ self.brain setColorComponentsToSelectedColor:snapshot.value ];
+             [ self setDisplayBackgroundColor ];
          }
      } ];
     [ sender.view removeFromSuperview ];
     sender = nil; // Just for good measure
 }
 
-- (void)setColorComponentsToSelectedColor:(NSArray *)selectedColor {
-    NSString *red = [ selectedColor objectAtIndex:0 ];
-    NSString *green = [ selectedColor objectAtIndex:1 ];
-    NSString *blue = [ selectedColor objectAtIndex:2 ];
-    
-    NSLog(@"There are %d values in the selected color", selectedColor.count );
-    NSLog(@"The value of red is %@", red);
-    self.brain.red.colorStepper.value =
-    self.brain.red.colorIntegerValue  = [ red intValue ];
-    self.brain.red.stringBuilder       =
-    self.brain.red.colorTextField.text = red;
-    
-    self.brain.green.colorStepper.value =
-    self.brain.green.colorIntegerValue  = [ green intValue ];
-    self.brain.red.stringBuilder         =
-    self.brain.green.colorTextField.text = green;
-    
-    self.brain.blue.colorStepper.value =
-    self.brain.blue.colorIntegerValue  = [ blue intValue ];
-    
-    self.brain.red.stringBuilder        =
-    self.brain.blue.colorTextField.text = blue;
-    /*[ self.brain.red.colorPicker selectRow:
-     [ [ NSString stringWithFormat:@"%c", [ red characterAtIndex:0] ] intValue ] inComponent:0 animated:YES ];
-     [ self.brain.red.colorPicker selectRow:
-     [ [ NSString stringWithFormat:@"%c", [ red characterAtIndex:1] ] intValue ] inComponent:1 animated:YES ];
-     [ self.brain.red.colorPicker selectRow:
-     [ [ NSString stringWithFormat:@"%c", [ red characterAtIndex:2] ] intValue ] inComponent:2 animated:YES ];*/
-    
-    for ( int i = 0; i <= 2; i++ ) {
-        [ self.brain.red.colorPicker selectRow:
-         [ [ NSString stringWithFormat:@"%c", [ red characterAtIndex:i ] ] intValue]
-                                   inComponent:i animated:YES ];
-        
-        [ self.brain.green.colorPicker selectRow:
-         [ [ NSString stringWithFormat:@"%c", [ green characterAtIndex:i ] ] intValue]
-                                     inComponent:i animated:YES ];
-        
-        [ self.brain.blue.colorPicker selectRow:
-         [ [ NSString stringWithFormat:@"%c", [ blue characterAtIndex:i ] ] intValue]
-                                    inComponent:i animated:YES ];
-    }
-    
-    [ self setDisplayBackgroundColor ];
-}
-
-- (void) setPickerViewComponents:(ColorPickerObject *) selectedColor {
-    selectedColor.colorPicker.
-    
-}
 @end

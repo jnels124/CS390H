@@ -32,5 +32,7 @@
 - (void)setDisplayBackgroundColor;
 - (void)setUpItemsForTableView;
 - (void)setColorComponentsToSelectedColor:(NSArray *)selectedColor;
+- (void) setPickerViewComponents:(UIPickerView *)selectedColor
+                       WithValue:(NSString *) colorValue;
 
 @end

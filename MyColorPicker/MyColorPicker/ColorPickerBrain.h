@@ -38,6 +38,12 @@
 - (void)makeNewColorObjectFromIBSender:(id)sender
                  ForCurrentColorObject:(ColorPickerObject *)color;
 - (ColorPickerObject *)determineColorOfSelectedPicker:(UIPickerView *)selectedPicker;
+- (void)handlePickerView:(UIPickerView *)pickerView
+         withSelectedRow:(NSInteger)row
+           FromComponent:(NSInteger)component;
+
+- (void) resetColor:(ColorPickerObject *)color withNewValue:(NSString*)newValue ;
+- (void)setColorComponentsToSelectedColor:(NSArray *)selectedColor;
 - ( UIColor * )getColor;
 - (id)init;
 
