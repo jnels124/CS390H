@@ -33,7 +33,11 @@ firebase;
     else if ( [ sender isKindOfClass:[ UITextField class ] ] ) {
         textValueFromSender = ((UITextField *)sender).text;
     }
-                                            
+    
+    // (Self note)
+    // Consider moving this loop to resetColor method to ensure
+    //  calling from outside of this method is handled correctly
+    //  from different callers.
     while ( textValueFromSender.length < 3 ) {
         textValueFromSender =
         [ @"0" stringByAppendingString:textValueFromSender ];
@@ -120,24 +124,8 @@ firebase;
         default:
             break;
     }
-    [ self.dictionaryOfCurrentColor setObject:
-     self.red.stringBuilder
-                                       forKey:@"Red" ];
-    [ self.dictionaryOfCurrentColor setObject:
-     self.green.stringBuilder
-                                       forKey:@"Green" ];
-    [ self.dictionaryOfCurrentColor setObject:
-     self.blue.stringBuilder
-                                       forKey:@"Blue" ];
     
-    [ [ self.firebase childByAppendingPath:@"/currentcolor" ]
-     setValue:self.dictionaryOfCurrentColor ];
-    
-    selectedColor.colorTextField.text =
-    selectedColor.stringBuilder;
-    selectedColor.colorStepper.value =
-    [ selectedColor.stringBuilder doubleValue ];
-    
+    [ self resetColor:selectedColor withNewValue:selectedColor.stringBuilder ];
     [ selectedColor.colorPicker reloadAllComponents ];
 }
 
@@ -146,11 +134,9 @@ firebase;
     if ( selectedPicker == self.red.colorPicker ) {
         return self.red;
     }
-    
     if ( selectedPicker == self.green.colorPicker ) {
         return self.green;
     }
-    
     if ( selectedPicker == self.blue.colorPicker ) {
         return self.blue;
     }
@@ -168,9 +154,9 @@ firebase;
              [ NSNumber numberWithInt:i ] ];
         }
         
+        // reset firebase live data
         self.dictionaryOfCurrentColor =
         [ [ NSMutableDictionary alloc ] init ];
-        // Set up firebase
         self.firebase = [ [ Firebase alloc ] initWithUrl:
                          @"https://colorpicker.firebaseio.com"];
         [ [ self.firebase childByAppendingPath:ROUTE_TO_SAVED ]
@@ -182,12 +168,7 @@ firebase;
              }
              else {
                  self.dictionaryOfSavedColors = snapshot.value;
-                 //NSLog(@"There are %d values in the dictionary ",
-                 //          self.dictionaryOfSavedColors.count );
              }
-             
-             //NSArray *keys  = [ self.dictionaryOfSavedColors allKeys ];
-             //NSLog(@"There are %d keys ", keys.count );
          } ];
     }
     return self;
@@ -206,19 +187,26 @@ firebase;
     color.colorTextField.text = newValue;
     [ self setPickerViewComponents:color.colorPicker
                          WithValue:newValue ];
+    // Set firebase live data
+    [ self.dictionaryOfCurrentColor setObject:self.red.stringBuilder
+                                       forKey:@"Red" ];
+    [ self.dictionaryOfCurrentColor setObject:self.green.stringBuilder
+                                       forKey:@"Green" ];
+    [ self.dictionaryOfCurrentColor setObject:self.blue.stringBuilder
+                                       forKey:@"Blue" ];
+    
+    [ [ self.firebase childByAppendingPath:@"/currentcolor" ]
+     setValue:self.dictionaryOfCurrentColor ];
 }
 
 - (void) setPickerViewComponents:(UIPickerView *)selectedColor
                        WithValue:(NSString *) colorValue {
-    
-    NSLog(@"The color value in setPickerViewComponents is %@", colorValue );
     for ( int i = 0; i <= 2; i++ ) {
         [ selectedColor selectRow:
          [ [ NSString stringWithFormat:@"%c",
             [ colorValue characterAtIndex:i ] ] intValue]
                       inComponent:i animated:YES ];
     }
-    
 }
 
 @end

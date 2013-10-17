@@ -53,7 +53,6 @@
 // Depracted
 - (BOOL)application:(UIApplication *)application
       handleOpenURL:(NSURL *)url {
-    NSLog(@"application handleOpenURL called in color picker ");
     return YES;
 }
 

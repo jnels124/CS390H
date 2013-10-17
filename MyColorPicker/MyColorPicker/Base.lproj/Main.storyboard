@@ -201,7 +201,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-805" y="-75"/>
+            <point key="canvasLocation" x="-601" y="-59"/>
         </scene>
         <!--Color Picker Saved Color Table View Controller-->
         <scene sceneID="ysL-wJ-8Kr">
@@ -226,7 +226,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBD-et-dXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-195" y="-59"/>
+            <point key="canvasLocation" x="-160" y="-59"/>
         </scene>
     </scenes>
     <resources>

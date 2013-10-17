@@ -31,4 +31,5 @@
 @property          Boolean      hundredsFlag;
 
 -(id)init;
+
 @end

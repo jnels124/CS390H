@@ -19,8 +19,7 @@ numberOfRows,
 delegate,
 textFromColorSelection;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -31,15 +30,13 @@ textFromColorSelection;
 - (void)viewDidLoad {
     [ super viewDidLoad ];
     
-    NSLog(@"In table view did load");
-    
     //Register reusable cell from storyboard to be used later.
     /*[ self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell" ];*/
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +54,6 @@ textFromColorSelection;
     }
     return self;
 }
-
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -29,13 +29,10 @@ display;
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"View did load in main controller was called");
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    //[ self.brain initializeFirebase ]; ... Being done in init
-    
+	
     self.savedColorView =
     [ [ ColorPickerSavedColorTableViewController alloc ] init ];
-    self.savedColorView.delegate = self;
+    self.savedColorView.delegate = self; // Set the delagate for saved color table
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +77,8 @@ display;
 
 - (IBAction)RecallPressed:(id)sender {
     [ self setUpItemsForTableView ];
-    NSLog(@"There are %d items in recall pressed", self.savedColorView.itemsToDisplay.count );
+    NSLog(@"There are %d items in recall pressed",
+          self.savedColorView.itemsToDisplay.count );
     [ self.view addSubview:self.savedColorView.view ];
 }
 
@@ -91,7 +89,6 @@ display;
     [ colors addObject:self.brain.green.stringBuilder ];
     [ colors addObject:self.brain.blue.stringBuilder ];
     
-    //NSLog(@"There are %d values in colors", colors.count );
     NSMutableString *query = [NSMutableString string];
     for (id val in colors) {
         NSLog(@"Inside for loop of finished picking color" );
@@ -102,7 +99,6 @@ display;
         
         [ query appendFormat:@"v=%@", val ];
     }
-    //NSLog(@"The query var is %@", query );
     
     NSString *urlStr =
     [@"myCalculator://colors?" stringByAppendingString:query];
@@ -112,13 +108,7 @@ display;
     UIApplication *test =
     [ UIApplication sharedApplication ];
     
-    //BOOL found =
     [ test openURL:url ];
-    
-    /*NSLog(@"the query in colorpicker is %@", [ url query ] );
-    if (found) NSLog( @"Resource was found" );
-    
-    else NSLog(@"unable to locate resource" );*/
 }
 
 - (void)setDisplayBackgroundColor {
@@ -201,7 +191,6 @@ display;
          }
          else {
              // Set background to selected color
-             
              [ self.brain setColorComponentsToSelectedColor:snapshot.value ];
              [ self setDisplayBackgroundColor ];
          }
