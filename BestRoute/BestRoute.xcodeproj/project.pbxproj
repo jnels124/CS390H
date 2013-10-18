@@ -61,13 +61,13 @@
 		2C915F1E1810AFFF007BD4C9 /* BestRouteBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteBrain.h; sourceTree = "<group>"; };
 		2C915F1F1810AFFF007BD4C9 /* BestRouteBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteBrain.m; sourceTree = "<group>"; };
 		2C915F211810B06F007BD4C9 /* BestRouteTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteTrip.h; path = ../../BestRouteTrip.h; sourceTree = "<group>"; };
-		2C915F221810B06F007BD4C9 /* BestRouteTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTrip.m; path = ../BestRouteTrip.m; sourceTree = "<group>"; };
+		2C915F221810B06F007BD4C9 /* BestRouteTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTrip.m; path = ../../BestRouteTrip.m; sourceTree = "<group>"; };
 		2C915F241810B108007BD4C9 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Route.h; path = ../../Route.h; sourceTree = "<group>"; };
-		2C915F251810B108007BD4C9 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Route.m; path = ../Route.m; sourceTree = "<group>"; };
+		2C915F251810B108007BD4C9 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Route.m; path = ../../Route.m; sourceTree = "<group>"; };
 		2C915F271810B13A007BD4C9 /* BestRouteSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteSegment.h; path = ../../BestRouteSegment.h; sourceTree = "<group>"; };
-		2C915F281810B13A007BD4C9 /* BestRouteSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteSegment.m; path = ../BestRouteSegment.m; sourceTree = "<group>"; };
+		2C915F281810B13A007BD4C9 /* BestRouteSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteSegment.m; path = ../../BestRouteSegment.m; sourceTree = "<group>"; };
 		2C915F2A1810B271007BD4C9 /* BestRouteTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteTimer.h; path = ../../BestRouteTimer.h; sourceTree = "<group>"; };
-		2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTimer.m; path = ../BestRouteTimer.m; sourceTree = "<group>"; };
+		2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTimer.m; path = ../../BestRouteTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,11 +173,8 @@
 		2CF9D7261810C45C00A8C689 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				2CF9D7281810C51300A8C689 /* Implementations */,
 				2CF9D7271810C4DB00A8C689 /* Headers */,
-				2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */,
-				2C915F221810B06F007BD4C9 /* BestRouteTrip.m */,
-				2C915F281810B13A007BD4C9 /* BestRouteSegment.m */,
-				2C915F251810B108007BD4C9 /* Route.m */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -191,6 +188,17 @@
 				2C915F271810B13A007BD4C9 /* BestRouteSegment.h */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		2CF9D7281810C51300A8C689 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */,
+				2C915F221810B06F007BD4C9 /* BestRouteTrip.m */,
+				2C915F281810B13A007BD4C9 /* BestRouteSegment.m */,
+				2C915F251810B108007BD4C9 /* Route.m */,
+			);
+			path = Implementations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

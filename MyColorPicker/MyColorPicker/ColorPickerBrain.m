@@ -34,15 +34,6 @@ firebase;
         textValueFromSender = ((UITextField *)sender).text;
     }
     
-    // (Self note)
-    // Consider moving this loop to resetColor method to ensure
-    //  calling from outside of this method is handled correctly
-    //  from different callers.
-    while ( textValueFromSender.length < 3 ) {
-        textValueFromSender =
-        [ @"0" stringByAppendingString:textValueFromSender ];
-    }
-    
     [ self resetColor:color withNewValue:textValueFromSender ];
 }
 
@@ -91,7 +82,7 @@ firebase;
                                                           withString:
      [ NSString stringWithFormat:@"%d", row ] ];
     
-    selectedColor.colorIntegerValue =
+    /*selectedColor.colorIntegerValue =
     [ selectedColor.stringBuilder intValue ];
     
     switch ( component ) {
@@ -123,10 +114,10 @@ firebase;
             break;
         default:
             break;
-    }
+    }*/
     
     [ self resetColor:selectedColor withNewValue:selectedColor.stringBuilder ];
-    [ selectedColor.colorPicker reloadAllComponents ];
+    //[ selectedColor.colorPicker reloadAllComponents ];
 }
 
 - (ColorPickerObject *)determineColorOfSelectedPicker:
@@ -181,6 +172,18 @@ firebase;
 }
 
 - (void) resetColor:(ColorPickerObject *)color withNewValue:(NSString*)newValue {
+    // Adjust selection to valid number if necessary
+    if ( [ newValue intValue ] > 255 ) {
+        newValue = @"255";
+    } else if ( [ newValue intValue ] < 0 ) {
+        newValue = @"000";
+    }
+    // Ensure received string is proper length
+    while ( newValue.length < 3 ) {
+        newValue =
+        [ @"0" stringByAppendingString:newValue ];
+    }
+    
     color.colorStepper.value  =
     color.colorIntegerValue   = [ newValue intValue ];
     color.stringBuilder       =
