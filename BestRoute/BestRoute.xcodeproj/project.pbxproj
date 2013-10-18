@@ -21,6 +21,11 @@
 		2C1637A3180FA1440028E39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C163785180FA1440028E39A /* UIKit.framework */; };
 		2C1637AB180FA1440028E39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C1637A9180FA1440028E39A /* InfoPlist.strings */; };
 		2C1637AD180FA1440028E39A /* BestRouteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1637AC180FA1440028E39A /* BestRouteTests.m */; };
+		2C915F201810AFFF007BD4C9 /* BestRouteBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F1F1810AFFF007BD4C9 /* BestRouteBrain.m */; };
+		2C915F231810B06F007BD4C9 /* BestRouteTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F221810B06F007BD4C9 /* BestRouteTrip.m */; };
+		2C915F261810B108007BD4C9 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F251810B108007BD4C9 /* Route.m */; };
+		2C915F291810B13A007BD4C9 /* BestRouteSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F281810B13A007BD4C9 /* BestRouteSegment.m */; };
+		2C915F2C1810B271007BD4C9 /* BestRouteTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,16 @@
 		2C1637A8180FA1440028E39A /* BestRouteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BestRouteTests-Info.plist"; sourceTree = "<group>"; };
 		2C1637AA180FA1440028E39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C1637AC180FA1440028E39A /* BestRouteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BestRouteTests.m; sourceTree = "<group>"; };
+		2C915F1E1810AFFF007BD4C9 /* BestRouteBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteBrain.h; sourceTree = "<group>"; };
+		2C915F1F1810AFFF007BD4C9 /* BestRouteBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteBrain.m; sourceTree = "<group>"; };
+		2C915F211810B06F007BD4C9 /* BestRouteTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteTrip.h; path = ../../BestRouteTrip.h; sourceTree = "<group>"; };
+		2C915F221810B06F007BD4C9 /* BestRouteTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTrip.m; path = ../BestRouteTrip.m; sourceTree = "<group>"; };
+		2C915F241810B108007BD4C9 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Route.h; path = ../../Route.h; sourceTree = "<group>"; };
+		2C915F251810B108007BD4C9 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Route.m; path = ../Route.m; sourceTree = "<group>"; };
+		2C915F271810B13A007BD4C9 /* BestRouteSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteSegment.h; path = ../../BestRouteSegment.h; sourceTree = "<group>"; };
+		2C915F281810B13A007BD4C9 /* BestRouteSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteSegment.m; path = ../BestRouteSegment.m; sourceTree = "<group>"; };
+		2C915F2A1810B271007BD4C9 /* BestRouteTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteTimer.h; path = ../../BestRouteTimer.h; sourceTree = "<group>"; };
+		2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTimer.m; path = ../BestRouteTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +127,9 @@
 		2C163787180FA1440028E39A /* BestRoute */ = {
 			isa = PBXGroup;
 			children = (
+				2C915F1F1810AFFF007BD4C9 /* BestRouteBrain.m */,
+				2C915F1E1810AFFF007BD4C9 /* BestRouteBrain.h */,
+				2CF9D7261810C45C00A8C689 /* Objects */,
 				2C163790180FA1440028E39A /* BestRouteAppDelegate.h */,
 				2C163791180FA1440028E39A /* BestRouteAppDelegate.m */,
 				2C163793180FA1440028E39A /* Main.storyboard */,
@@ -150,6 +168,29 @@
 				2C1637A9180FA1440028E39A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CF9D7261810C45C00A8C689 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9D7271810C4DB00A8C689 /* Headers */,
+				2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */,
+				2C915F221810B06F007BD4C9 /* BestRouteTrip.m */,
+				2C915F281810B13A007BD4C9 /* BestRouteSegment.m */,
+				2C915F251810B108007BD4C9 /* Route.m */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		2CF9D7271810C4DB00A8C689 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2C915F241810B108007BD4C9 /* Route.h */,
+				2C915F211810B06F007BD4C9 /* BestRouteTrip.h */,
+				2C915F2A1810B271007BD4C9 /* BestRouteTimer.h */,
+				2C915F271810B13A007BD4C9 /* BestRouteSegment.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C915F201810AFFF007BD4C9 /* BestRouteBrain.m in Sources */,
+				2C915F2C1810B271007BD4C9 /* BestRouteTimer.m in Sources */,
 				2C163798180FA1440028E39A /* BestRouteViewController.m in Sources */,
 				2C163792180FA1440028E39A /* BestRouteAppDelegate.m in Sources */,
+				2C915F261810B108007BD4C9 /* Route.m in Sources */,
+				2C915F291810B13A007BD4C9 /* BestRouteSegment.m in Sources */,
 				2C16378E180FA1440028E39A /* main.m in Sources */,
+				2C915F231810B06F007BD4C9 /* BestRouteTrip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +507,7 @@
 				2C1637B2180FA1440028E39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C1637B3180FA1440028E39A /* Build configuration list for PBXNativeTarget "BestRouteTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +516,7 @@
 				2C1637B5180FA1440028E39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
