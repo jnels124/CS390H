@@ -21,11 +21,15 @@
 		2C1637A3180FA1440028E39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C163785180FA1440028E39A /* UIKit.framework */; };
 		2C1637AB180FA1440028E39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C1637A9180FA1440028E39A /* InfoPlist.strings */; };
 		2C1637AD180FA1440028E39A /* BestRouteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1637AC180FA1440028E39A /* BestRouteTests.m */; };
+		2C7C5C881810F0AA00EC12E1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7C5C871810F0AA00EC12E1 /* MapKit.framework */; };
+		2C7C5C8B1810F2C900EC12E1 /* BestRouteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C5C8A1810F2C900EC12E1 /* BestRouteTableViewController.m */; };
+		2C7C5C8D181100ED00EC12E1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7C5C8C181100ED00EC12E1 /* CoreLocation.framework */; };
+		2C7C5C901811ED0500EC12E1 /* BestRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C5C8F1811ED0500EC12E1 /* BestRouteAnnotation.m */; };
+		2C89FC911810E6EA00AE1433 /* BestRouteSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89FC8D1810E6EA00AE1433 /* BestRouteSegment.m */; };
+		2C89FC921810E6EA00AE1433 /* BestRouteTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89FC8E1810E6EA00AE1433 /* BestRouteTimer.m */; };
+		2C89FC931810E6EA00AE1433 /* BestRouteTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89FC8F1810E6EA00AE1433 /* BestRouteTrip.m */; };
+		2C89FC941810E6EA00AE1433 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89FC901810E6EA00AE1433 /* Route.m */; };
 		2C915F201810AFFF007BD4C9 /* BestRouteBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F1F1810AFFF007BD4C9 /* BestRouteBrain.m */; };
-		2C915F231810B06F007BD4C9 /* BestRouteTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F221810B06F007BD4C9 /* BestRouteTrip.m */; };
-		2C915F261810B108007BD4C9 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F251810B108007BD4C9 /* Route.m */; };
-		2C915F291810B13A007BD4C9 /* BestRouteSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F281810B13A007BD4C9 /* BestRouteSegment.m */; };
-		2C915F2C1810B271007BD4C9 /* BestRouteTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,16 +62,22 @@
 		2C1637A8180FA1440028E39A /* BestRouteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BestRouteTests-Info.plist"; sourceTree = "<group>"; };
 		2C1637AA180FA1440028E39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C1637AC180FA1440028E39A /* BestRouteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BestRouteTests.m; sourceTree = "<group>"; };
+		2C7C5C871810F0AA00EC12E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2C7C5C891810F2C900EC12E1 /* BestRouteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteTableViewController.h; sourceTree = "<group>"; };
+		2C7C5C8A1810F2C900EC12E1 /* BestRouteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteTableViewController.m; sourceTree = "<group>"; };
+		2C7C5C8C181100ED00EC12E1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2C7C5C8E1811ED0500EC12E1 /* BestRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteAnnotation.h; path = ../BestRouteAnnotation.h; sourceTree = "<group>"; };
+		2C7C5C8F1811ED0500EC12E1 /* BestRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteAnnotation.m; path = ../BestRouteAnnotation.m; sourceTree = "<group>"; };
+		2C89FC8D1810E6EA00AE1433 /* BestRouteSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteSegment.m; sourceTree = "<group>"; };
+		2C89FC8E1810E6EA00AE1433 /* BestRouteTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteTimer.m; sourceTree = "<group>"; };
+		2C89FC8F1810E6EA00AE1433 /* BestRouteTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteTrip.m; sourceTree = "<group>"; };
+		2C89FC901810E6EA00AE1433 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		2C89FC951810E6FD00AE1433 /* BestRouteSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteSegment.h; sourceTree = "<group>"; };
+		2C89FC961810E6FD00AE1433 /* BestRouteTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteTimer.h; sourceTree = "<group>"; };
+		2C89FC971810E6FD00AE1433 /* BestRouteTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteTrip.h; sourceTree = "<group>"; };
+		2C89FC981810E6FD00AE1433 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		2C915F1E1810AFFF007BD4C9 /* BestRouteBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteBrain.h; sourceTree = "<group>"; };
 		2C915F1F1810AFFF007BD4C9 /* BestRouteBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteBrain.m; sourceTree = "<group>"; };
-		2C915F211810B06F007BD4C9 /* BestRouteTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteTrip.h; path = ../../BestRouteTrip.h; sourceTree = "<group>"; };
-		2C915F221810B06F007BD4C9 /* BestRouteTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTrip.m; path = ../../BestRouteTrip.m; sourceTree = "<group>"; };
-		2C915F241810B108007BD4C9 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Route.h; path = ../../Route.h; sourceTree = "<group>"; };
-		2C915F251810B108007BD4C9 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Route.m; path = ../../Route.m; sourceTree = "<group>"; };
-		2C915F271810B13A007BD4C9 /* BestRouteSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteSegment.h; path = ../../BestRouteSegment.h; sourceTree = "<group>"; };
-		2C915F281810B13A007BD4C9 /* BestRouteSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteSegment.m; path = ../../BestRouteSegment.m; sourceTree = "<group>"; };
-		2C915F2A1810B271007BD4C9 /* BestRouteTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteTimer.h; path = ../../BestRouteTimer.h; sourceTree = "<group>"; };
-		2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTimer.m; path = ../../BestRouteTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7C5C8D181100ED00EC12E1 /* CoreLocation.framework in Frameworks */,
+				2C7C5C881810F0AA00EC12E1 /* MapKit.framework in Frameworks */,
 				2C163784180FA1440028E39A /* CoreGraphics.framework in Frameworks */,
 				2C163786180FA1440028E39A /* UIKit.framework in Frameworks */,
 				2C163782180FA1440028E39A /* Foundation.framework in Frameworks */,
@@ -116,6 +128,8 @@
 		2C163780180FA1440028E39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C7C5C8C181100ED00EC12E1 /* CoreLocation.framework */,
+				2C7C5C871810F0AA00EC12E1 /* MapKit.framework */,
 				2C163781180FA1440028E39A /* Foundation.framework */,
 				2C163783180FA1440028E39A /* CoreGraphics.framework */,
 				2C163785180FA1440028E39A /* UIKit.framework */,
@@ -137,6 +151,8 @@
 				2C163797180FA1440028E39A /* BestRouteViewController.m */,
 				2C163799180FA1440028E39A /* Images.xcassets */,
 				2C163788180FA1440028E39A /* Supporting Files */,
+				2C7C5C891810F2C900EC12E1 /* BestRouteTableViewController.h */,
+				2C7C5C8A1810F2C900EC12E1 /* BestRouteTableViewController.m */,
 			);
 			path = BestRoute;
 			sourceTree = "<group>";
@@ -182,10 +198,11 @@
 		2CF9D7271810C4DB00A8C689 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				2C915F241810B108007BD4C9 /* Route.h */,
-				2C915F211810B06F007BD4C9 /* BestRouteTrip.h */,
-				2C915F2A1810B271007BD4C9 /* BestRouteTimer.h */,
-				2C915F271810B13A007BD4C9 /* BestRouteSegment.h */,
+				2C7C5C8E1811ED0500EC12E1 /* BestRouteAnnotation.h */,
+				2C89FC951810E6FD00AE1433 /* BestRouteSegment.h */,
+				2C89FC961810E6FD00AE1433 /* BestRouteTimer.h */,
+				2C89FC971810E6FD00AE1433 /* BestRouteTrip.h */,
+				2C89FC981810E6FD00AE1433 /* Route.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -193,10 +210,11 @@
 		2CF9D7281810C51300A8C689 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
-				2C915F2B1810B271007BD4C9 /* BestRouteTimer.m */,
-				2C915F221810B06F007BD4C9 /* BestRouteTrip.m */,
-				2C915F281810B13A007BD4C9 /* BestRouteSegment.m */,
-				2C915F251810B108007BD4C9 /* Route.m */,
+				2C7C5C8F1811ED0500EC12E1 /* BestRouteAnnotation.m */,
+				2C89FC8D1810E6EA00AE1433 /* BestRouteSegment.m */,
+				2C89FC8E1810E6EA00AE1433 /* BestRouteTimer.m */,
+				2C89FC8F1810E6EA00AE1433 /* BestRouteTrip.m */,
+				2C89FC901810E6EA00AE1433 /* Route.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -249,6 +267,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jesse Nelson";
 				TargetAttributes = {
+					2C16377D180FA1440028E39A = {
+						DevelopmentTeam = Q66FV7AA38;
+					};
 					2C16379E180FA1440028E39A = {
 						TestTargetID = 2C16377D180FA1440028E39A;
 					};
@@ -299,14 +320,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7C5C8B1810F2C900EC12E1 /* BestRouteTableViewController.m in Sources */,
 				2C915F201810AFFF007BD4C9 /* BestRouteBrain.m in Sources */,
-				2C915F2C1810B271007BD4C9 /* BestRouteTimer.m in Sources */,
+				2C89FC941810E6EA00AE1433 /* Route.m in Sources */,
 				2C163798180FA1440028E39A /* BestRouteViewController.m in Sources */,
 				2C163792180FA1440028E39A /* BestRouteAppDelegate.m in Sources */,
-				2C915F261810B108007BD4C9 /* Route.m in Sources */,
-				2C915F291810B13A007BD4C9 /* BestRouteSegment.m in Sources */,
+				2C89FC921810E6EA00AE1433 /* BestRouteTimer.m in Sources */,
+				2C89FC911810E6EA00AE1433 /* BestRouteSegment.m in Sources */,
 				2C16378E180FA1440028E39A /* main.m in Sources */,
-				2C915F231810B06F007BD4C9 /* BestRouteTrip.m in Sources */,
+				2C7C5C901811ED0500EC12E1 /* BestRouteAnnotation.m in Sources */,
+				2C89FC931810E6EA00AE1433 /* BestRouteTrip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,10 +456,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BestRoute/BestRoute-Prefix.pch";
 				INFOPLIST_FILE = "BestRoute/BestRoute-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -446,10 +472,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BestRoute/BestRoute-Prefix.pch";
 				INFOPLIST_FILE = "BestRoute/BestRoute-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
