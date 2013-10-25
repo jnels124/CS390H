@@ -24,16 +24,25 @@
 @property CLLocationCoordinate2D startCoord;
 @property CLLocationCoordinate2D endCoord;
 @property NSString *startingLocation;
-// This should be used as the default initializer
-- (void) initSegment:(NSString *)segmentName
-withStartingLocation:(NSString *)startingLocation
-   andEndingLocation:(NSString *)endingLocation;
+@property NSString *endingLocation;
+@property NSDictionary *routesForSegment;
 
+// This should be used as the default initializer
+- (BestRouteSegment *)initSegmentWithStartingLocation:
+(CLLocationCoordinate2D )startCoord
+                                    andEndingLocation:
+(CLLocationCoordinate2D )endCoord;
+
+
++(double)GetDistance:(double)lat1
+               long1:(double)lng1
+                 la2:(double)lat2
+               long2:(double)lng2;
 // Displays segments to choose from
 - (void) showSegments;
 
-// Adds a new route to the routesForSegmentDictionary
-- (void) addRoute:(Route *)newRoute withRouteName:(NSString *)routeName;
+// Returns a new dictionary with the added route
+- (NSDictionary *) addRoute:(Route *)newRoute withRouteName:(NSString *)routeName;
 
 // Determines if two segments are the same
 //    will return true if both the starting

@@ -14,7 +14,7 @@
 
 #define MAP_DELTA_LATTITUDE = 0.02
 #define MAP_DELTA_LONGITUDE = 0.02
-
+#define EARTH_RADIUS = double 6378.138
 #define START_ANNOTATION    = @"Start";
 @interface BestRouteViewController : UIViewController
 < MKMapViewDelegate, UIGestureRecognizerDelegate > {
@@ -23,6 +23,7 @@
     IBOutlet MKMapView *theMap;
     IBOutlet UILongPressGestureRecognizer *lpGesture;
     CLLocationCoordinate2D selectedLocation;
+    //BestRouteSegment *currentSegment;
 }
 
 @property (strong, nonatomic) IBOutlet MKMapView *theMap;

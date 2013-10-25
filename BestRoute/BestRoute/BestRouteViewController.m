@@ -29,7 +29,7 @@ lpGesture;
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
     self.lpGesture.minimumPressDuration = 1.5;
     self.lpGesture.delegate = self;
-    [self.theMap addGestureRecognizer:self.lpGesture ];
+    [ self.theMap addGestureRecognizer:self.lpGesture ];
     
     [ mapView setMapType:MKMapTypeStandard ];
     [ mapView setZoomEnabled:YES ];
@@ -51,7 +51,7 @@ lpGesture;
     return brain;
 }
 
-- (void*)showStartNotification{
+- (void*)showStartNotification {
     UIAlertView *determineAction =
     [ [ UIAlertView alloc ] initWithTitle:@"Start"
                                   message:@"What would you like to do?"
@@ -96,7 +96,7 @@ lpGesture;
         
         else if ( self.theMap.annotations.count > 2 ) {
             // Start location will be
-            annotation.coordinate = self.selectedLocation;
+            annotation.coordinate = coordinate;
             annotation.title = @"Places To Stop";
             annotation.subTitle = @"End time info";
         }
@@ -111,17 +111,20 @@ lpGesture;
     //MKCoordinateSpan span;
     //span.latitudeDelta = 0.005;
     //span.longitudeDelta = 0.005;
-    
+    //if ( )
     CLLocationCoordinate2D location;
     location.latitude = aUserLocation.coordinate.latitude;
     location.longitude = aUserLocation.coordinate.longitude;
     //region.span = span;
     //region.center = location;
-    /*CLLocationDistance dist = [loc1 distanceFromLocation:loc2];
-
-    if ( location ) {
-    }*/
     
+    if ( [ self.brain isCoordinate:location WithinDistance:10
+                      OfCoordinate:self.brain.currentSegment.startCoord ] ) {
+        
+    } else if ( [ self.brain isCoordinate:location WithinDistance:10
+                             OfCoordinate:self.brain.currentSegment.endCoord ] ){
+        
+    }
     MKCoordinateRegion region =
     MKCoordinateRegionMakeWithDistance(location, 600, 600);
     [ aMapView setRegion:region animated:YES ];

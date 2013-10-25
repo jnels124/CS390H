@@ -16,7 +16,7 @@ subTitle;
 
 - (id) initWithLocation:(CLLocationCoordinate2D)coord {
     if ( self = [ super init ] ) {
-        self->coordinate = coord;
+        self.coordinate = coord;
     }
     return self;
 }

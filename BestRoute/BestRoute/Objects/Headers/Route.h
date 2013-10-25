@@ -18,15 +18,14 @@
     NSArray *allTripsFromRoute;
 }
 
+@property NSString *routeName;
+@property double avgRouteTime;
+@property NSArray *allTripsFromRoute;
+
 // Adds trip to allTripsFromRoute
-- (void) addTrip:(BestRouteTrip *)newTrip;
+- (NSArray *) addTrip:(BestRouteTrip *)newTrip;
 
-- (void) determineAverageTime;
+- (double) determineAverageTime;
 
-// Determines if two routes are the same
-//    will return true if both the starting
-//    and ending location of this segment
-//    are within 25 meters of the passed in
-//    segment
-- (BOOL) isEqual:(Route *)segment;
+- (BOOL) isEqual:(Route *)route;
 @end

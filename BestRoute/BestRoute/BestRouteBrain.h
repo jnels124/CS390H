@@ -23,6 +23,9 @@
 
 @property (strong)CLLocationManager *locationManager;
 @property BestRouteSegment *currentSegment;
+@property BestRouteTimer *timer;
+@property NSDictionary *segments;
+
 // Returns an array sorted by time of day
 - (NSArray *) routesByTimeOfDay;
 // Returns an array sorted in chronological order from time of creation
@@ -35,5 +38,9 @@
 //
 // Return NO if segment is not in dictionary else YES
 - (BOOL) segmentExists:(BestRouteSegment *)segment;
+
+- (BOOL) isCoordinate:(CLLocationCoordinate2D)firstCoordinate
+       WithinDistance:(int)distance
+         OfCoordinate:(CLLocationCoordinate2D)secondCoordinate ;
 
 @end

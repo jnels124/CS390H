@@ -9,14 +9,31 @@
 #import "BestRouteTimer.h"
 
 @implementation BestRouteTimer
-@synthesize <#property#>
+@synthesize
+start,
+end;
+
+-(id)init {
+    if ( self = [ super init ] ) {
+        self.start = [ [ NSDate alloc ] init ];
+        self.end   = [ [ NSDate alloc ] init ];
+    }
+    return self;
+}
+
 // Starts the timer by creating a new NSDate and assigning to start
 - (void) startTiming {
+    start = [ NSDate date ];
 }
+
 // Stops the timer by creating a new NSDate and assigning to stop
 - (void) stopTiming {
+    end = [ NSDate date ];
 }
+
 // Returns in minutes the elapsed time between start and stop
-- (void) elapsedTime{
+- (double) elapsedTime {
+    return [ end timeIntervalSinceDate:start ];
 }
+
 @end
