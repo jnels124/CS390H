@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BestRouteTrip.h"
 
-@interface Route : NSObject {
+@interface Route : NSObject < NSCoding >{
     // Name of route given by user
     NSString *routeName;
     // The total average time for all trips using this route
@@ -28,4 +28,6 @@
 - (double) determineAverageTime;
 
 - (BOOL) isEqual:(Route *)route;
+
+- (Route *)initWithRouteName:(NSString *)name;
 @end

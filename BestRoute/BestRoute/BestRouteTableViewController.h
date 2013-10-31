@@ -8,6 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BestRouteTableViewController : UITableViewController
-
+@class BestRouteTableViewController;
+@protocol myBestRouteTableControllerDelegate
+- (void) myBestRouteTableControllerDidSelectSegment:
+(NSString *)selectedSegment
+                                             sender:
+(BestRouteTableViewController * )sender;
 @end
+@interface BestRouteTableViewController : UITableViewController {
+    int      numberOfRows;
+    NSArray  *itemsToDisplay;
+    NSString *textFromSegmentSelection;
+}
+
+
+
+@property int      numberOfRows;
+@property NSArray  *itemsToDisplay;
+@property NSString *textFromSegmentSelection;
+@property
+(nonatomic, unsafe_unretained)
+id<myBestRouteTableControllerDelegate> delegate;
+
+-(id)init;
+@end
+

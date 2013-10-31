@@ -10,7 +10,9 @@
 #import "Route.h"
 #import "BestRouteAnnotation.h"
 
-@interface BestRouteSegment :NSObject {
+@interface BestRouteSegment :NSObject <NSCoding>{
+    // Name of segment
+    NSString *segmentName;
     // String reprsenting starting location for segment
     NSString *startingLocation;
     // String representing ending location for segment
@@ -25,6 +27,7 @@
 @property CLLocationCoordinate2D endCoord;
 @property NSString *startingLocation;
 @property NSString *endingLocation;
+@property NSString *segmentName;
 @property NSDictionary *routesForSegment;
 
 // This should be used as the default initializer
@@ -32,7 +35,6 @@
 (CLLocationCoordinate2D )startCoord
                                     andEndingLocation:
 (CLLocationCoordinate2D )endCoord;
-
 
 +(double)GetDistance:(double)lat1
                long1:(double)lng1

@@ -30,6 +30,7 @@
 		2C89FC931810E6EA00AE1433 /* BestRouteTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89FC8F1810E6EA00AE1433 /* BestRouteTrip.m */; };
 		2C89FC941810E6EA00AE1433 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C89FC901810E6EA00AE1433 /* Route.m */; };
 		2C915F201810AFFF007BD4C9 /* BestRouteBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C915F1F1810AFFF007BD4C9 /* BestRouteBrain.m */; };
+		867B21C84711413DB2FEA5D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324AB0FDD0E44EBA1FA6F10 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CCB1FC8718649BFB6420C9E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		2C16377E180FA1440028E39A /* BestRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C163781180FA1440028E39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C163783180FA1440028E39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -78,6 +80,7 @@
 		2C89FC981810E6FD00AE1433 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		2C915F1E1810AFFF007BD4C9 /* BestRouteBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteBrain.h; sourceTree = "<group>"; };
 		2C915F1F1810AFFF007BD4C9 /* BestRouteBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteBrain.m; sourceTree = "<group>"; };
+		9324AB0FDD0E44EBA1FA6F10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,7 @@
 				2C163784180FA1440028E39A /* CoreGraphics.framework in Frameworks */,
 				2C163786180FA1440028E39A /* UIKit.framework in Frameworks */,
 				2C163782180FA1440028E39A /* Foundation.framework in Frameworks */,
+				867B21C84711413DB2FEA5D2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +117,7 @@
 				2C1637A6180FA1440028E39A /* BestRouteTests */,
 				2C163780180FA1440028E39A /* Frameworks */,
 				2C16377F180FA1440028E39A /* Products */,
+				1CCB1FC8718649BFB6420C9E /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +139,7 @@
 				2C163783180FA1440028E39A /* CoreGraphics.framework */,
 				2C163785180FA1440028E39A /* UIKit.framework */,
 				2C1637A0180FA1440028E39A /* XCTest.framework */,
+				9324AB0FDD0E44EBA1FA6F10 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,8 +153,8 @@
 				2C163790180FA1440028E39A /* BestRouteAppDelegate.h */,
 				2C163791180FA1440028E39A /* BestRouteAppDelegate.m */,
 				2C163793180FA1440028E39A /* Main.storyboard */,
-				2C163796180FA1440028E39A /* BestRouteViewController.h */,
 				2C163797180FA1440028E39A /* BestRouteViewController.m */,
+				2C163796180FA1440028E39A /* BestRouteViewController.h */,
 				2C163799180FA1440028E39A /* Images.xcassets */,
 				2C163788180FA1440028E39A /* Supporting Files */,
 				2C7C5C891810F2C900EC12E1 /* BestRouteTableViewController.h */,
@@ -226,9 +232,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C1637B0180FA1440028E39A /* Build configuration list for PBXNativeTarget "BestRoute" */;
 			buildPhases = (
+				828FF5C559834148BFDC2D41 /* Check Pods Manifest.lock */,
 				2C16377A180FA1440028E39A /* Sources */,
 				2C16377B180FA1440028E39A /* Frameworks */,
 				2C16377C180FA1440028E39A /* Resources */,
+				8D826FB82200455D8798D7C7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,6 +322,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		828FF5C559834148BFDC2D41 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8D826FB82200455D8798D7C7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C16377A180FA1440028E39A /* Sources */ = {
@@ -453,6 +494,7 @@
 		};
 		2C1637B1180FA1440028E39A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CCB1FC8718649BFB6420C9E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -461,6 +503,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BestRoute/BestRoute-Prefix.pch";
 				INFOPLIST_FILE = "BestRoute/BestRoute-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/iOS\\ DeviceSupport/7.0.2\\ (11A501)/Symbols/usr/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -469,6 +515,7 @@
 		};
 		2C1637B2180FA1440028E39A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CCB1FC8718649BFB6420C9E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -477,6 +524,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BestRoute/BestRoute-Prefix.pch";
 				INFOPLIST_FILE = "BestRoute/BestRoute-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/iOS\\ DeviceSupport/7.0.2\\ (11A501)/Symbols/usr/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

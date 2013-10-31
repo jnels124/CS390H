@@ -11,8 +11,12 @@
 @interface BestRouteTableViewController ()
 
 @end
-
 @implementation BestRouteTableViewController
+@synthesize
+itemsToDisplay,
+numberOfRows,
+delegate,
+textFromSegmentSelection;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -37,29 +41,63 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(id) init {
+    if ( self = [ super init ] ) {
+        self.itemsToDisplay = [ [ NSArray alloc ] init ];
+        self.textFromSegmentSelection = [ [ NSString alloc ] init ];
+        self.numberOfRows = 0;
+        
+        [ self.tableView registerClass:[ UITableViewCell class ] forCellReuseIdentifier:@"Cell" ];
+    }
+    return self;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
+    NSLog(@"Number of sections in table view was called");
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    NSLog
+    (@"The number of rows in table view is %d", self.numberOfRows );
+    
+    return self.itemsToDisplay.count;//self.numberOfRows;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell =
+    [ tableView dequeueReusableCellWithIdentifier:CellIdentifier
+                                     forIndexPath:indexPath ];
+    if ( cell == nil ) {
+        cell =
+        [ [ UITableViewCell alloc ] initWithStyle:UITableViewCellStyleDefault
+                                  reuseIdentifier:CellIdentifier ];
+    }
     
-    // Configure the cell...
+    cell.textLabel.text =
+    [ self.itemsToDisplay objectAtIndex:indexPath.row ];
     
     return cell;
+}
+
+#pragma mark - TableViewController delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
+(NSIndexPath *)indexPath {
+    
+    self.textFromSegmentSelection = [ [ NSString alloc ] init ];
+    UITableViewCell *cell = [ tableView cellForRowAtIndexPath:indexPath ];
+    self.textFromSegmentSelection = cell.textLabel.text;
+    
+    [ delegate myBestRouteTableControllerDidSelectSegment:
+     self.textFromSegmentSelection sender:self ]; // Tell main screen user
 }
 
 /*

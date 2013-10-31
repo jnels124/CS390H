@@ -15,19 +15,21 @@ end;
 
 -(id)init {
     if ( self = [ super init ] ) {
-        self.start = [ [ NSDate alloc ] init ];
-        self.end   = [ [ NSDate alloc ] init ];
+        //self.start = [ [ NSDate alloc ] init ];
+        //self.end   = [ [ NSDate alloc ] init ];
     }
     return self;
 }
 
 // Starts the timer by creating a new NSDate and assigning to start
 - (void) startTiming {
+    NSLog(@"Timing started");
     start = [ NSDate date ];
 }
 
 // Stops the timer by creating a new NSDate and assigning to stop
 - (void) stopTiming {
+    NSLog(@"Timing Ended");
     end = [ NSDate date ];
 }
 

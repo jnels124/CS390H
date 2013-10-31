@@ -10,21 +10,24 @@
 #import "BestRouteTimer.h"
 #import "BestRouteSegment.h"
 #import <CoreLocation/CoreLocation.h>
-@interface BestRouteBrain : NSObject <CLLocationManagerDelegate> {
+#import <Firebase/Firebase.h>
+#define ROUTE_TO_SAVED     @"/saved"
+@interface BestRouteBrain : NSObject < CLLocationManagerDelegate, NSCoding > {
     NSDictionary *segments;
     BestRouteTimer *timer;
     BestRouteSegment *currentSegment;
     //Manages attributes that communicate with GPS
     CLLocationManager *locationManager;
+    Firebase *firebase;
    //NSDictionary *routesByTimeOfDay;
    //NSDictionary *routesByAverage;
-    
 }
 
-@property (strong)CLLocationManager *locationManager;
+@property ( strong ) CLLocationManager *locationManager;
 @property BestRouteSegment *currentSegment;
 @property BestRouteTimer *timer;
 @property NSDictionary *segments;
+@property Firebase *firebase;
 
 // Returns an array sorted by time of day
 - (NSArray *) routesByTimeOfDay;
@@ -41,6 +44,9 @@
 
 - (BOOL) isCoordinate:(CLLocationCoordinate2D)firstCoordinate
        WithinDistance:(int)distance
-         OfCoordinate:(CLLocationCoordinate2D)secondCoordinate ;
+         OfCoordinate:(CLLocationCoordinate2D)secondCoordinate;
+
+- (void) segmentEnded:(BestRouteSegment *) segment;
+- (NSString *) getFilePathByAppending:(NSString *)name;
 
 @end

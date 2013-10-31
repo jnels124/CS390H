@@ -21,6 +21,23 @@ afternoon,
 eveningTrafic,
 eveningAfterTrafic;
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    NSLog(@"Encode in trip was called");
+    [ encoder encodeObject:self.timeOfDay forKey:@"timeOfDay" ];
+    [ encoder encodeDouble:self.tripTime forKey:@"tripTime" ];
+}
+
+- (id)initWithCoder:(NSCoder *)adecoder {
+    NSLog(@"init with coder in trip was called");
+    if ( self = [ super init ] ) {
+        self.timeOfDay =
+        [ adecoder decodeObjectForKey:@"timeOfDay" ];
+        self.tripTime =
+        [ adecoder decodeDoubleForKey:@"tripTime" ];
+    }
+    return self;
+}
+
 - (id)init {
     if ( self = [ super init ] ) {
         self.tripTime = 0.0;
@@ -30,6 +47,7 @@ eveningAfterTrafic;
         self.afternoon = [ self dateWithHour:12 andMinute:0 ];
         self.eveningTrafic = [ self dateWithHour:15 andMinute:30 ];
         self.eveningAfterTrafic = [ self dateWithHour:18 andMinute:30 ];
+        
         self.timeOfDay = [ self determineTimeofDayWithTime:[ NSDate date ] ];
     }
     return self;
@@ -44,7 +62,7 @@ eveningAfterTrafic;
     }
     
     else if ( ( [ self.morningTrafic compare:time ] == NSOrderedAscending ||
-               [ self.morningTrafic compare:time ] == NSOrderedSame  ) &&
+                [ self.morningTrafic compare:time ] == NSOrderedSame  ) &&
              [ time compare:self.morningAfterTrafic ] == NSOrderedAscending ) {
         return @"Morning Traffic!";
     }

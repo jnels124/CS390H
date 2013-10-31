@@ -17,12 +17,16 @@
 #define EARTH_RADIUS = double 6378.138
 #define START_ANNOTATION    = @"Start";
 @interface BestRouteViewController : UIViewController
-< MKMapViewDelegate, UIGestureRecognizerDelegate > {
-    BestRouteBrain *brain;
+< MKMapViewDelegate, UIGestureRecognizerDelegate, myBestRouteTableControllerDelegate > {
+    BestRouteBrain *brain;   // Read only property created in implementation
     BestRouteTableViewController *savedDataTable;
     IBOutlet MKMapView *theMap;
     IBOutlet UILongPressGestureRecognizer *lpGesture;
     CLLocationCoordinate2D selectedLocation;
+    UIAlertView *startNotification;
+    UIAlertView *segMentNotification;
+    UIAlertView *routeNotification;
+    //BestRouteTableViewController *segmentTableView;
     //BestRouteSegment *currentSegment;
 }
 
@@ -30,8 +34,12 @@
 @property BestRouteTableViewController *savedDataTable;
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *lpGesture;
 @property CLLocationCoordinate2D selectedLocation;
-- (void*)displayNotification;
-- (void*)showStartNotification;
+@property UIAlertView *startNotification;
+@property UIAlertView *segMentNotification;
+@property UIAlertView *routeNotification;
+
+-(UIAlertView *)NotificationWithTitle:(NSString *)title
+                              Message:(NSString *)message;
 - (IBAction)handleLongPress:(UILongPressGestureRecognizer *)
 gestureRecognizer;
 @end

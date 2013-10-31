@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 //static const NSArray *timeOfDayCategories = NULL;
 
-@interface BestRouteTrip : NSObject {
+@interface BestRouteTrip : NSObject < NSCoding >{
     // Time elapsed for current trip
     double tripTime;
     // String representing time of day - Departure time is
     NSString *timeOfDay;
+    
+    #warning These should not be ivars, they need to be created as class constants.
     NSDate *morningBeforeTrafic;// from 12:00am to 6:30am
     NSDate *morningTrafic; // from 6:30am to 9:30am
     NSDate *morningAfterTrafic; // from 9:30am to 12:00pm
@@ -24,6 +26,8 @@
 
 @property double tripTime;
 @property NSString *timeOfDay;
+
+#warning These should not be properties, they need to be created as class constants.
 @property NSDate *morningBeforeTrafic;// from 12:00am to 6:30am
 @property NSDate *morningTrafic; // from 6:30am to 9:30am
 @property NSDate *morningAfterTrafic; // from 9:30am to 12:00pm
