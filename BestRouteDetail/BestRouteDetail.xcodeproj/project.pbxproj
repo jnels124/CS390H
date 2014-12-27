@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0914C218237501005347C4 /* BestRouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0914C118237501005347C4 /* BestRouteMapViewController.m */; };
 		2C103A2618233ABE009EC842 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C103A2518233ABE009EC842 /* Foundation.framework */; };
 		2C103A2818233ABE009EC842 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C103A2718233ABE009EC842 /* CoreGraphics.framework */; };
 		2C103A2A18233ABE009EC842 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C103A2918233ABE009EC842 /* UIKit.framework */; };
@@ -22,6 +23,16 @@
 		2C103A4A18233ABE009EC842 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C103A2918233ABE009EC842 /* UIKit.framework */; };
 		2C103A5218233ABE009EC842 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C103A5018233ABE009EC842 /* InfoPlist.strings */; };
 		2C103A5418233ABE009EC842 /* BestRouteDetailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C103A5318233ABE009EC842 /* BestRouteDetailTests.m */; };
+		2C103A6A18233C9B009EC842 /* BestRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C103A5F18233C9B009EC842 /* BestRouteAnnotation.m */; };
+		2C103A6B18233C9B009EC842 /* BestRouteSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C103A6618233C9B009EC842 /* BestRouteSegment.m */; };
+		2C103A6C18233C9B009EC842 /* BestRouteTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C103A6718233C9B009EC842 /* BestRouteTimer.m */; };
+		2C103A6D18233C9B009EC842 /* BestRouteTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C103A6818233C9B009EC842 /* BestRouteTrip.m */; };
+		2C103A6E18233C9B009EC842 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C103A6918233C9B009EC842 /* Route.m */; };
+		2C103A7718236D39009EC842 /* BestRouteBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C103A7618236D39009EC842 /* BestRouteBrain.m */; };
+		2CAB8A3A18237B0C00C88E92 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB8A3918237B0C00C88E92 /* RouteViewController.m */; };
+		2CAB8A3D18237C5D00C88E92 /* BestRouteTripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB8A3C18237C5D00C88E92 /* BestRouteTripViewController.m */; };
+		2CAB8A83182397B400C88E92 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAB8A82182397B400C88E92 /* MapKit.framework */; };
+		5C8F094C58DC46E983ED490B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D31FD4FB064C98B9D65C80 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0914C018237501005347C4 /* BestRouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteMapViewController.h; path = ../BestRouteMapViewController.h; sourceTree = "<group>"; };
+		2C0914C118237501005347C4 /* BestRouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteMapViewController.m; path = ../BestRouteMapViewController.m; sourceTree = "<group>"; };
 		2C103A2218233ABE009EC842 /* BestRouteDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestRouteDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C103A2518233ABE009EC842 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C103A2718233ABE009EC842 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,16 +59,35 @@
 		2C103A3418233ABE009EC842 /* BestRouteAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BestRouteAppDelegate.h; sourceTree = "<group>"; };
 		2C103A3518233ABE009EC842 /* BestRouteAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BestRouteAppDelegate.m; sourceTree = "<group>"; };
 		2C103A3818233ABE009EC842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C103A3A18233ABE009EC842 /* BestRouteMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BestRouteMasterViewController.h; sourceTree = "<group>"; };
-		2C103A3B18233ABE009EC842 /* BestRouteMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BestRouteMasterViewController.m; sourceTree = "<group>"; };
-		2C103A3D18233ABE009EC842 /* BestRouteDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BestRouteDetailViewController.h; sourceTree = "<group>"; };
-		2C103A3E18233ABE009EC842 /* BestRouteDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BestRouteDetailViewController.m; sourceTree = "<group>"; };
+		2C103A3A18233ABE009EC842 /* BestRouteMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BestRouteMasterViewController.h; path = ../../BestRouteDetail/BestRouteMasterViewController.h; sourceTree = "<group>"; };
+		2C103A3B18233ABE009EC842 /* BestRouteMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BestRouteMasterViewController.m; path = ../../BestRouteDetail/BestRouteMasterViewController.m; sourceTree = "<group>"; };
+		2C103A3D18233ABE009EC842 /* BestRouteDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BestRouteDetailViewController.h; path = ../../BestRouteDetail/BestRouteDetailViewController.h; sourceTree = "<group>"; };
+		2C103A3E18233ABE009EC842 /* BestRouteDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BestRouteDetailViewController.m; path = ../../BestRouteDetail/BestRouteDetailViewController.m; sourceTree = "<group>"; };
 		2C103A4018233ABE009EC842 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2C103A4618233ABE009EC842 /* BestRouteDetailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestRouteDetailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C103A4718233ABE009EC842 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2C103A4F18233ABE009EC842 /* BestRouteDetailTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BestRouteDetailTests-Info.plist"; sourceTree = "<group>"; };
 		2C103A5118233ABE009EC842 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C103A5318233ABE009EC842 /* BestRouteDetailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BestRouteDetailTests.m; sourceTree = "<group>"; };
+		2C103A5E18233C9B009EC842 /* BestRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteAnnotation.h; sourceTree = "<group>"; };
+		2C103A5F18233C9B009EC842 /* BestRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteAnnotation.m; sourceTree = "<group>"; };
+		2C103A6118233C9B009EC842 /* BestRouteSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteSegment.h; sourceTree = "<group>"; };
+		2C103A6218233C9B009EC842 /* BestRouteTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteTimer.h; sourceTree = "<group>"; };
+		2C103A6318233C9B009EC842 /* BestRouteTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteTrip.h; sourceTree = "<group>"; };
+		2C103A6418233C9B009EC842 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		2C103A6618233C9B009EC842 /* BestRouteSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteSegment.m; sourceTree = "<group>"; };
+		2C103A6718233C9B009EC842 /* BestRouteTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteTimer.m; sourceTree = "<group>"; };
+		2C103A6818233C9B009EC842 /* BestRouteTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteTrip.m; sourceTree = "<group>"; };
+		2C103A6918233C9B009EC842 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		2C103A7518236D39009EC842 /* BestRouteBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestRouteBrain.h; sourceTree = "<group>"; };
+		2C103A7618236D39009EC842 /* BestRouteBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestRouteBrain.m; sourceTree = "<group>"; };
+		2CAB8A3818237B0C00C88E92 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouteViewController.h; path = ../RouteViewController.h; sourceTree = "<group>"; };
+		2CAB8A3918237B0C00C88E92 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RouteViewController.m; path = ../RouteViewController.m; sourceTree = "<group>"; };
+		2CAB8A3B18237C5D00C88E92 /* BestRouteTripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BestRouteTripViewController.h; path = ../BestRouteTripViewController.h; sourceTree = "<group>"; };
+		2CAB8A3C18237C5D00C88E92 /* BestRouteTripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BestRouteTripViewController.m; path = ../BestRouteTripViewController.m; sourceTree = "<group>"; };
+		2CAB8A82182397B400C88E92 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8BA4908B7DD94BB3AD3E04ED /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F1D31FD4FB064C98B9D65C80 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +95,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CAB8A83182397B400C88E92 /* MapKit.framework in Frameworks */,
 				2C103A2818233ABE009EC842 /* CoreGraphics.framework in Frameworks */,
 				2C103A2A18233ABE009EC842 /* UIKit.framework in Frameworks */,
 				2C103A2618233ABE009EC842 /* Foundation.framework in Frameworks */,
+				5C8F094C58DC46E983ED490B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,10 +119,13 @@
 		2C103A1918233ABE009EC842 = {
 			isa = PBXGroup;
 			children = (
+				2C103A7518236D39009EC842 /* BestRouteBrain.h */,
+				2C103A7618236D39009EC842 /* BestRouteBrain.m */,
 				2C103A2B18233ABE009EC842 /* BestRouteDetail */,
 				2C103A4D18233ABE009EC842 /* BestRouteDetailTests */,
 				2C103A2418233ABE009EC842 /* Frameworks */,
 				2C103A2318233ABE009EC842 /* Products */,
+				8BA4908B7DD94BB3AD3E04ED /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,10 +141,12 @@
 		2C103A2418233ABE009EC842 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CAB8A82182397B400C88E92 /* MapKit.framework */,
 				2C103A2518233ABE009EC842 /* Foundation.framework */,
 				2C103A2718233ABE009EC842 /* CoreGraphics.framework */,
 				2C103A2918233ABE009EC842 /* UIKit.framework */,
 				2C103A4718233ABE009EC842 /* XCTest.framework */,
+				F1D31FD4FB064C98B9D65C80 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,13 +154,11 @@
 		2C103A2B18233ABE009EC842 /* BestRouteDetail */ = {
 			isa = PBXGroup;
 			children = (
+				2C103A7218236A85009EC842 /* ViewControllers */,
+				2C103A5D18233C9B009EC842 /* Objects */,
 				2C103A3418233ABE009EC842 /* BestRouteAppDelegate.h */,
 				2C103A3518233ABE009EC842 /* BestRouteAppDelegate.m */,
 				2C103A3718233ABE009EC842 /* Main.storyboard */,
-				2C103A3A18233ABE009EC842 /* BestRouteMasterViewController.h */,
-				2C103A3B18233ABE009EC842 /* BestRouteMasterViewController.m */,
-				2C103A3D18233ABE009EC842 /* BestRouteDetailViewController.h */,
-				2C103A3E18233ABE009EC842 /* BestRouteDetailViewController.m */,
 				2C103A4018233ABE009EC842 /* Images.xcassets */,
 				2C103A2C18233ABE009EC842 /* Supporting Files */,
 			);
@@ -157,6 +194,74 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2C103A5D18233C9B009EC842 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2C103A5E18233C9B009EC842 /* BestRouteAnnotation.h */,
+				2C103A5F18233C9B009EC842 /* BestRouteAnnotation.m */,
+				2C103A6018233C9B009EC842 /* Headers */,
+				2C103A6518233C9B009EC842 /* Implementations */,
+			);
+			name = Objects;
+			path = ../Objects;
+			sourceTree = "<group>";
+		};
+		2C103A6018233C9B009EC842 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2C103A6118233C9B009EC842 /* BestRouteSegment.h */,
+				2C103A6218233C9B009EC842 /* BestRouteTimer.h */,
+				2C103A6318233C9B009EC842 /* BestRouteTrip.h */,
+				2C103A6418233C9B009EC842 /* Route.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		2C103A6518233C9B009EC842 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				2C103A6618233C9B009EC842 /* BestRouteSegment.m */,
+				2C103A6718233C9B009EC842 /* BestRouteTimer.m */,
+				2C103A6818233C9B009EC842 /* BestRouteTrip.m */,
+				2C103A6918233C9B009EC842 /* Route.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		2C103A7218236A85009EC842 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C103A7318236A85009EC842 /* Headers */,
+				2C103A7418236A85009EC842 /* Implementations */,
+			);
+			name = ViewControllers;
+			path = ../ViewControllers;
+			sourceTree = "<group>";
+		};
+		2C103A7318236A85009EC842 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2CAB8A3B18237C5D00C88E92 /* BestRouteTripViewController.h */,
+				2CAB8A3818237B0C00C88E92 /* RouteViewController.h */,
+				2C0914C018237501005347C4 /* BestRouteMapViewController.h */,
+				2C103A3A18233ABE009EC842 /* BestRouteMasterViewController.h */,
+				2C103A3D18233ABE009EC842 /* BestRouteDetailViewController.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		2C103A7418236A85009EC842 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				2CAB8A3C18237C5D00C88E92 /* BestRouteTripViewController.m */,
+				2CAB8A3918237B0C00C88E92 /* RouteViewController.m */,
+				2C0914C118237501005347C4 /* BestRouteMapViewController.m */,
+				2C103A3B18233ABE009EC842 /* BestRouteMasterViewController.m */,
+				2C103A3E18233ABE009EC842 /* BestRouteDetailViewController.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +269,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C103A5718233ABE009EC842 /* Build configuration list for PBXNativeTarget "BestRouteDetail" */;
 			buildPhases = (
+				0087A00CD6C74F63953C1493 /* Check Pods Manifest.lock */,
 				2C103A1E18233ABE009EC842 /* Sources */,
 				2C103A1F18233ABE009EC842 /* Frameworks */,
 				2C103A2018233ABE009EC842 /* Resources */,
+				5F8D7DB724884D5994865B90 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,15 +357,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0087A00CD6C74F63953C1493 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5F8D7DB724884D5994865B90 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2C103A1E18233ABE009EC842 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2C103A3618233ABE009EC842 /* BestRouteAppDelegate.m in Sources */,
+				2C103A7718236D39009EC842 /* BestRouteBrain.m in Sources */,
 				2C103A3F18233ABE009EC842 /* BestRouteDetailViewController.m in Sources */,
 				2C103A3218233ABE009EC842 /* main.m in Sources */,
+				2C103A6E18233C9B009EC842 /* Route.m in Sources */,
+				2C103A6B18233C9B009EC842 /* BestRouteSegment.m in Sources */,
+				2C103A6A18233C9B009EC842 /* BestRouteAnnotation.m in Sources */,
 				2C103A3C18233ABE009EC842 /* BestRouteMasterViewController.m in Sources */,
+				2C103A6D18233C9B009EC842 /* BestRouteTrip.m in Sources */,
+				2C0914C218237501005347C4 /* BestRouteMapViewController.m in Sources */,
+				2C103A6C18233C9B009EC842 /* BestRouteTimer.m in Sources */,
+				2CAB8A3A18237B0C00C88E92 /* RouteViewController.m in Sources */,
+				2CAB8A3D18237C5D00C88E92 /* BestRouteTripViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +531,7 @@
 		};
 		2C103A5818233ABE009EC842 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BA4908B7DD94BB3AD3E04ED /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -395,6 +545,7 @@
 		};
 		2C103A5918233ABE009EC842 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BA4908B7DD94BB3AD3E04ED /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -467,6 +618,7 @@
 				2C103A5918233ABE009EC842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C103A5A18233ABE009EC842 /* Build configuration list for PBXNativeTarget "BestRouteDetailTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +627,7 @@
 				2C103A5C18233ABE009EC842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

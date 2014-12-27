@@ -48,5 +48,5 @@
 
 - (void) segmentEnded:(BestRouteSegment *) segment;
 - (NSString *) getFilePathByAppending:(NSString *)name;
-
+- (BestRouteSegment *) newSegment;
 @end

@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface BestRouteAppDelegate : UIResponder <UIApplicationDelegate>
+@interface BestRouteAppDelegate : UIResponder <UIApplicationDelegate> 
 
 @property (strong, nonatomic) UIWindow *window;
 

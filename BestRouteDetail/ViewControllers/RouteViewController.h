@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Route.h"
 @interface RouteViewController : UITableViewController
-
+@property (strong, nonatomic) NSMutableArray *objects;
 @end

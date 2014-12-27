@@ -57,12 +57,13 @@ textFromColorSelection;
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //NSLog(@"Number of sections in table view was called");
+    NSLog(@"Number of sections in table view was called");
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
     NSLog(@"The number of rows in table view is %d", self.numberOfRows );
     return self.numberOfRows;
 }

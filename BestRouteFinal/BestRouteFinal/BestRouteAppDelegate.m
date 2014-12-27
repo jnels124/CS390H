@@ -10,9 +10,16 @@
 
 @implementation BestRouteAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    if ( application.backgroundRefreshStatus ) NSLog(@"Able to reciveBackground updates");
+    else NSLog(@"Unable to recieve background updates");
+    NSLog(@"Called application finished launching");
+    // Here we create our deepSleepPreventer and get it to keep our iPhone from deep sleeping
+    /*self.deepSleepPreventer = [[SleepPreventer alloc] init];
+    [self.deepSleepPreventer startPreventSleep];
+    
+    [window addSubview:masterViewController.view];
+    [window makeKeyAndVisible];*/
     return YES;
 }
 							

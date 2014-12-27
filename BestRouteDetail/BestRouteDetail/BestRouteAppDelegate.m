@@ -7,12 +7,22 @@
 //
 
 #import "BestRouteAppDelegate.h"
-
+#import "BestRouteMapViewController.h"
+//#import ""
 @implementation BestRouteAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UINavigationController *navController =
+    (UINavigationController *)self.window.rootViewController;
+    BestRouteMapViewController *mapview =
+    [ navController.storyboard instantiateViewControllerWithIdentifier:@"MapView" ];
+
+    
+    // First item in array is bottom of stack, last item is top.
+    //navController.viewControllers = [NSArray arrayWithObjects:mapview, nil];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							

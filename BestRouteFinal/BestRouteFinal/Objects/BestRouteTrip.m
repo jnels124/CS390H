@@ -7,7 +7,6 @@
 //
 
 #import "BestRouteTrip.h"
-
 @implementation BestRouteTrip {
     
 }
@@ -21,14 +20,14 @@ afternoon,
 eveningTrafic,
 eveningAfterTrafic;
 
+// Serialize this object
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    NSLog(@"Encode in trip was called");
     [ encoder encodeObject:self.timeOfDay forKey:@"timeOfDay" ];
     [ encoder encodeDouble:self.tripTime forKey:@"tripTime" ];
 }
 
+// De-serialize this object
 - (id)initWithCoder:(NSCoder *)adecoder {
-    NSLog(@"init with coder in trip was called");
     if ( self = [ super init ] ) {
         self.timeOfDay =
         [ adecoder decodeObjectForKey:@"timeOfDay" ];
@@ -38,9 +37,13 @@ eveningAfterTrafic;
     return self;
 }
 
+
 - (id)init {
     if ( self = [ super init ] ) {
         self.tripTime = 0.0;
+        self.timer =
+        [ [ BestRouteTimer alloc ] init ];
+#warning This block should be constants, not ivars!
         self.morningBeforeTrafic = [ self dateWithHour:0 andMinute:0 ];
         self.morningTrafic = [ self dateWithHour:6 andMinute:30 ];
         self.morningAfterTrafic = [ self dateWithHour:9 andMinute:30 ];
@@ -48,10 +51,11 @@ eveningAfterTrafic;
         self.eveningTrafic = [ self dateWithHour:15 andMinute:30 ];
         self.eveningAfterTrafic = [ self dateWithHour:18 andMinute:30 ];
         
-        self.timeOfDay = [ self determineTimeofDayWithTime:[ NSDate date ] ];
+        self.timeOfDay = [ self determineTimeofDayWithTime:[ NSDate date ] ] ;
     }
     return self;
 }
+
 // Will take the time passed in and return a string
 //   to represent the time of day
 - (NSString *) determineTimeofDayWithTime:(NSDate *)time {
@@ -73,9 +77,9 @@ eveningAfterTrafic;
         return @"Morning, after traffic ";
     }
     
-    else if ( ( [ self.afternoon compare:time ] == NSOrderedAscending ||
+    else if ( ( [ time compare:self.afternoon ] == NSOrderedAscending ||
                [ self.afternoon compare:time ] == NSOrderedSame  ) &&
-             [ time compare:self.eveningTrafic ] == NSOrderedAscending ) {
+             [ self.eveningTrafic compare:time ] == NSOrderedAscending ) {
         return @"Afternoon";
     }
     
@@ -89,16 +93,27 @@ eveningAfterTrafic;
 }
 
 - (NSDate *)dateWithHour:(int)hour andMinute:(int)minutes {
-    NSDate *today = [NSDate date];
-    NSCalendar *gregorian = [ [ NSCalendar alloc ]
-                             initWithCalendarIdentifier:NSGregorianCalendar ];
-    NSDateComponents *components =
-    [ gregorian components:(NSDayCalendarUnit |
-                            NSWeekdayCalendarUnit) fromDate:today];
-    [ components setHour:hour ];
-    [ components setMinute:minutes ];
-    return [ gregorian dateFromComponents:components ];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar ];
+    
+    [ calendar setTimeZone:[ NSTimeZone localTimeZone ] ];
+    
+    NSDate *today = [ NSDate date ];
+    NSDateComponents *todayComps =
+    [ calendar components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSMinuteCalendarUnit | NSHourCalendarUnit |NSTimeZoneCalendarUnit) fromDate:today ];
+    
+    todayComps.timeZone = [ NSTimeZone localTimeZone ];
+    todayComps.minute = minutes;
+    todayComps.hour = hour;
+    NSDate *newDate = [ calendar dateFromComponents:todayComps ];
+    return newDate;
 }
 
+- (NSString *) description {
+    NSString *data = [ [ NSString alloc ] init];
+    data = [ data stringByAppendingString:
+            [ NSString stringWithFormat:@"Time of Day: %@", self.timeOfDay ] ];
+    data = [ data stringByAppendingString:[ NSString stringWithFormat:@"\nTrip Time: %f", self.tripTime ] ];
+    return data;
+}
 
 @end

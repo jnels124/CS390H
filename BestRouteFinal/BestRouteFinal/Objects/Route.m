@@ -15,14 +15,12 @@ avgRouteTime,
 routeName;
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    NSLog(@"Encode in route was called");
     [ encoder encodeObject:self.allTripsFromRoute forKey:@"allTripsFromRoute" ];
     [ encoder encodeDouble:self.avgRouteTime forKey:@"avgRouteTime" ];
     [ encoder encodeObject:self.routeName forKey:@"routeName" ];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    NSLog(@"init with coder in route was called");
     if ( self = [ super init ] ) {
         self.allTripsFromRoute =
         [ aDecoder decodeObjectForKey:@"allTripsFromRoute" ];
@@ -51,13 +49,16 @@ routeName;
     return trips;
 }
 
+// Determines the average of all trips taken with this route
 - (double) determineAverageTime {
+    if ( !self.allTripsFromRoute.count ) return 0;
     double average = 0.0;
-    for ( BestRouteTrip *trip in allTripsFromRoute ) average += trip.tripTime;
-    
+    for ( BestRouteTrip *trip in self.allTripsFromRoute ) average += trip.tripTime;
     return average / self.allTripsFromRoute.count;
 }
 
+#warning Unimplemented
+// Returns YES if routes are equal else, no
 - (BOOL) isEqual:(Route *)route {
     return NO;
 }

@@ -7,16 +7,17 @@
 //
 
 #import "BestRouteBrain.h"
-
 @implementation BestRouteBrain
 @synthesize
 locationManager,
 currentSegment,
-timer,
+currentRoute,
+currentTrip,
+segmentKeys,
+delegate,
 segments;
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    NSLog(@"Encode in brain was called");
     [ encoder encodeObject:segments forKey:@"segments" ];
 }
 
@@ -27,41 +28,21 @@ segments;
     return self;
 }
 
-- (BestRouteSegment *) newSegment {
-    return nil;
-}
-
 -(id)init {
     if ( self = [ super init ] ) {
         self.locationManager = [ CLLocationManager new ];
         self.locationManager.delegate = self;
+        self.locationManager.pausesLocationUpdatesAutomatically = NO;
+        self.locationManager.distanceFilter = 100;
+        self.locationManager.desiredAccuracy = 20;
         self.currentSegment = [ [ BestRouteSegment alloc ] init ];
-        self.timer = [ [ BestRouteTimer alloc ] init ];
-        self.locationManager.delegate = self;
-        //self.segments = [ [ NSDictionary alloc ] init ];
+        self.segmentKeys =
+        [ [ NSArray alloc ] init ];
     }
+    
     return self;
 }
 
-// Returns an array sorted by time of day
-- (NSArray *) routesByTimeOfDay {
-    return nil;
-}
-// Returns an array sorted in chronological order from time of creation
-- (NSArray *) routesByChronlogicalOrder {
-    return nil;
-}
-
-// Returns an array sorted by average route time
-- (NSArray *) routesByAverageTime {
-    return nil;
-}
-
-// Searchs the dictionary to determine if the segment
-//   all ready exists
-//
-// Return NO if segment is not in dictionary else YES
-// And also sets the BestRouteObjectPassed in to the mathcing segment
 - (BOOL) segmentExists:(BestRouteSegment *)segment {
     for ( BestRouteSegment *seg in self.segments ) {
         if ( [ seg isEqual:segment ] ) {
@@ -76,33 +57,54 @@ segments;
 - (BOOL) isCoordinate:(CLLocationCoordinate2D)firstCoordinate
        WithinDistance:(int)distance
          OfCoordinate:(CLLocationCoordinate2D)secondCoordinate {
+    
     double theDistance = [ BestRouteSegment GetDistance:firstCoordinate.latitude
                                                   long1:firstCoordinate.longitude
                                                     la2:secondCoordinate.latitude
                                                   long2:secondCoordinate.longitude ]
     * 1609.34 ; // Convert to meters
-    //NSLog(@"inside is coordinate within distance. The distance is %f", theDistance  );
+    
     return theDistance <= distance;
 }
 
-- (void) segmentEnded:(BestRouteSegment *)segment {
-    if ( !segment.routesForSegment )
-        NSLog(@"The segment passed to segmentEnded is Null");
-    
-    NSMutableDictionary *savedSegments =
+- (NSDictionary *) addSegment:(BestRouteSegment *)newSegment
+                withSegmentName:(NSString *)segmentName {
+    NSMutableDictionary *newSegments =
     [ [ NSMutableDictionary alloc ] initWithDictionary:self.segments ];
-    [ savedSegments setObject:segment forKey:segment.segmentName ];
-    self.segments = [ [ NSDictionary alloc ] initWithDictionary:savedSegments ];
-    // Set up data to be archived
+    [ newSegments setObject:newSegment forKey:segmentName ];
+    
+    return newSegments;
+}
+
+- (NSArray *) addKey:(NSString *) key {
+    NSMutableArray *newKeys =
+    [ [ NSMutableArray alloc ] initWithArray:self.segmentKeys ];
+    [ newKeys addObject:key ];
+    
+    return [ [ NSArray alloc ] initWithArray:newKeys ];
+}
+
+#warning No longer used.. May need for later
+- (void) segmentEnded:(BestRouteSegment *)segment {
+
+}
+
+- (void) writeData {
+    // Need to remove current location annotation as the class doesn't implement NSCoding protocol.
+    NSMutableArray *tmpAnnos =
+    [ [ NSMutableArray alloc ] initWithArray:self.currentSegment.mapAnnotations ];
+    for ( int i = 0; i < tmpAnnos.count; i++ ) {
+        if ( [ tmpAnnos[i] isKindOfClass:[MKUserLocation class] ]) {
+            [ tmpAnnos removeObjectAtIndex:i ];
+        }
+    }
+    self.currentSegment.mapAnnotations =
+    [ [ NSArray alloc ] initWithArray:tmpAnnos ];
+    
     NSData *data = [ NSKeyedArchiver archivedDataWithRootObject:self.segments ];
-    //[ data ]
-    //NSData *data1 =
-    //[ NSKeyedArchiver archivedDataWithRootObject:self.currentSegment.routesForSegment ];
+    NSData *keys = [ NSKeyedArchiver archivedDataWithRootObject:self.segmentKeys ];
     [ data writeToFile:[ self getFilePathByAppending:@"segments" ] atomically:TRUE ];
-    if ( segment != self.currentSegment ) NSLog( @"The incorrect segment came to segment Ended" );
-    if (!self.currentSegment.routesForSegment)
-        NSLog(@"The routes for current segment are null in segment ended" );
-    NSLog(@"data was writen to file");
+    [ keys writeToFile:[ self getFilePathByAppending:@"segmentKeys"] atomically:TRUE];
 }
 
 - (NSString *) getFilePathByAppending:(NSString *) name {
@@ -117,14 +119,22 @@ segments;
     return filePath;
 }
 
+# pragma mark Location manager delegates
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
     NSDate* eventDate = newLocation.timestamp;
     NSTimeInterval howRecent = [ eventDate timeIntervalSinceNow ];
     if ( abs(howRecent) < 15.0 ) {
-        NSLog(@"New Latitude %+.6f, Longitude %+.6f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+       NSLog(@"New Latitude %+.6f, Longitude %+.6f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+        [ self.delegate locationUpdate:newLocation ];
     }
+}
+
+- (void) locationManager:(CLLocationManager *)manager
+        didFailWithError:(NSError *)error {
+    NSLog(@"Error: %@", [ error description ] );
+    [ self.delegate locationError:error ];
 }
 
 @end

@@ -28,6 +28,10 @@ firebase;
     return self;
 }
 
+- (BestRouteSegment *) newSegment {
+    return nil;
+}
+
 -(id)init {
     if ( self = [ super init ] ) {
         self.locationManager = [ CLLocationManager new ];

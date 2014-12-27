@@ -13,7 +13,7 @@
 #define HUNDREDS_COMPONENT 0
 #define TENS_COMPONENT     1
 #define ONES_COMPONENT     2
-#define ROUTE_TO_SAVED      @"/saved"
+#define ROUTE_TO_SAVED     @"/saved"
 
 @interface ColorPickerBrain : NSObject < UIPickerViewDataSource > {
     IBOutlet ColorPickerObject   *red;

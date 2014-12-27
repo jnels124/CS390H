@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-651" y="-900"/>
+            <point key="canvasLocation" x="-676" y="-884"/>
         </scene>
         <!--Best Route Master View Controller - Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -58,12 +58,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Segments" id="tQt-TN-PWz"/>
                     <connections>
-                        <segue destination="gyc-r1-vAu" kind="push" identifier="toMapView" id="fTp-Dk-Yzf"/>
+                        <segue destination="gyc-r1-vAu" kind="push" identifier="toMapView" id="J9i-Fc-YaK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-137" y="-148"/>
+            <point key="canvasLocation" x="-33" y="-868"/>
         </scene>
         <!--Map View Controller - MapView-->
         <scene sceneID="mIi-WE-xk5">
@@ -103,7 +103,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="M3c-cN-kGs"/>
+                    <navigationItem key="navigationItem" title="Map" id="M3c-cN-kGs"/>
                     <connections>
                         <outlet property="lpGesture" destination="lud-lE-P6a" id="pqB-FF-PA3"/>
                         <outlet property="searchDisplayController" destination="3Ni-mV-TWr" id="O4D-dS-ikj"/>
@@ -111,7 +111,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pz-VB-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lud-lE-P6a">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1.3999999999999999" id="lud-lE-P6a">
                     <connections>
                         <action selector="handleLongPress:" destination="gyc-r1-vAu" id="PDG-Xf-VZe"/>
                         <outlet property="delegate" destination="gyc-r1-vAu" id="tQ3-MH-N8w"/>
@@ -127,7 +127,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="436" y="-928"/>
+            <point key="canvasLocation" x="1612" y="-2032"/>
         </scene>
         <!--Route View Controller - RoutesView-->
         <scene sceneID="KVY-7B-Hun">
@@ -159,7 +159,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ey-rQ-do7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="-148"/>
+            <point key="canvasLocation" x="524" y="-860"/>
         </scene>
         <!--Trip View Controller - Trips-->
         <scene sceneID="8Xb-ez-2I9">
@@ -188,10 +188,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Trips" id="fp7-kz-xaZ"/>
+                    <connections>
+                        <segue destination="gyc-r1-vAu" kind="push" identifier="toMapView" id="G0Y-mo-oca"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nsr-8y-MGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="867" y="-142"/>
+            <point key="canvasLocation" x="1091" y="-854"/>
         </scene>
         <!--Best Route Detail View Controller - Detail-->
         <scene sceneID="Cn3-H9-jdl">
@@ -205,8 +208,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
-                                <rect key="frame" x="20" y="276" width="280" height="17"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="9" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
+                                <rect key="frame" x="20" y="271" width="280" height="84"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -227,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282" y="-142"/>
+            <point key="canvasLocation" x="1724" y="-854"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -235,4 +238,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="J9i-Fc-YaK"/>
+    </inferredMetricsTieBreakers>
 </document>

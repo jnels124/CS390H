@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2954AE5E-B91B-4F72-AAFC-437A5E776ABE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BestRouteFinal</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>35657B0A-7C8C-4516-8963-1192CAEF6ECA</key>
+		<string>https://github.com/jnels124/CS390H</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BestRouteFinal/BestRouteFinal.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>35657B0A-7C8C-4516-8963-1192CAEF6ECA</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jnels124/CS390H</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>35657B0A-7C8C-4516-8963-1192CAEF6ECA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>35657B0A-7C8C-4516-8963-1192CAEF6ECA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CS390H</string>
+		</dict>
+	</array>
+</dict>
+</plist>
